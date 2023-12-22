@@ -1,0 +1,39 @@
+.containerWhyUs{
+    color: #000;
+    font-family: Arial;
+    font-style: normal;
+    /* 150% */
+}
+
+.title{
+    font-size: 24px;
+    line-height: 36px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.subtitle{
+    font-size: 18px;
+    line-height: 20px; /* 142.857% */
+    margin-top : 16px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.listItem{
+    margin-top: 20px
+}
+
+.titleList{
+    font-size: 24px;
+}
+
+.listItem .subtitle{
+    text-align: left;
+}
+
+@media (min-width : 768px){
+    .title, .subtitle{
+        text-align: left;
+    }
+}
