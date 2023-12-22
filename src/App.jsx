@@ -1,10 +1,13 @@
-import Hero from './components/Hero/Hero';
 import style from "./app.module.css"
+import HeaderMain from "./components/HeaderMain/HeaderMain";
+import Hero from "./components/Hero/Hero";
 function App() {
 
   return (
     <div className={style.container}>
-      <Hero />
+      <HeaderMain>
+        <Hero />
+      </HeaderMain>
     </div>
   );
 }
