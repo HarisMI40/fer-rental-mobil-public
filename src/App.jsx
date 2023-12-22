@@ -4,6 +4,7 @@ import HeaderMain from "./components/HeaderMain/HeaderMain";
 import Hero from "./components/Hero/Hero";
 import OurService from "./components/OurService/OurService";
 import WhyUs from "./components/WhyUs/WhyUs";
+import CtaBanner from "./components/CtaBanner/CtaBanner";
 function App() {
 
   return (
@@ -18,6 +19,10 @@ function App() {
 
       <Container>
         <WhyUs />
+      </Container>
+
+      <Container className={style.containerCtaBanner}>
+        <CtaBanner />
       </Container>
     </div>
   );
