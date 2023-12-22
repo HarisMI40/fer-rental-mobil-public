@@ -1,0 +1,54 @@
+.navbar{
+    /* padding : 10px; */
+    display: flex;
+    justify-content: space-between;
+    padding : 0 16px;
+}
+
+
+.navbar .brand{
+    background-color: #0D28A6;
+    width: 100px;
+    height: 34px;
+}
+
+.collapse{
+    display: none;
+    /* background : green; */
+}
+
+.item ul{
+    display: flex;
+    gap : 40px;
+    list-style: none;
+}
+
+.item ul li {
+    color: #000;
+    font-family: Arial;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.toggle{
+    display: block;
+}
+
+@media (min-width : 768px){
+
+    .toggle{
+        display: none;
+    }
+
+    .collapse{
+        display: block;
+    }
+}
+
+@media (min-width : 1279px){
+    .navbar {
+        padding : 0 136px;
+    }
+}
