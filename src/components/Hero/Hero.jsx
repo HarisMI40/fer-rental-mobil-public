@@ -1,6 +1,5 @@
 import React from "react";
 import style from "./hero.module.css"
-import Navbar from "../Navbar/Navbar";
 import imgCar from "../../assets/img_car.svg"
 const Hero = () => {
     return (
