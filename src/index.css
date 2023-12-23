@@ -13,6 +13,11 @@
   -moz-osx-font-smoothing: grayscale;
 } */
 
+.container{
+  width: 100%;
+  padding-bottom : 116px;
+}
+
 .title{
   color: #000;
   font-family: Arial;

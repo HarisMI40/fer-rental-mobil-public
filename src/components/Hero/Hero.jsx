@@ -1,7 +1,8 @@
 import React from "react";
 import style from "./hero.module.css"
 import imgCar from "../../assets/img_car.svg"
-const Hero = () => {
+import { Link } from "react-router-dom";
+const Hero = ({isButtonActive = true}) => {
     return (
         <div className={style.containerHero}>
             <div className={style.containerDisplay}>
@@ -12,10 +13,11 @@ const Hero = () => {
                 <div className={style.textParagraph}>
                 Selamat datang di Binar Car Rental. Kami menyediakan mobil kualitas terbaik dengan harga terjangkau. Selalu siap melayani kebutuhanmu untuk sewa mobil selama 24 jam.
                 </div>
-                <div>
-                    <button className={style.buttonAction}>Mulai Sewa Mobil</button>{' '}
-
-                </div>
+                {isButtonActive && (
+                    <div className="mt-4">
+                        <Link to={`cari-mobil`} className={style.buttonAction}>Mulai Sewa Mobil</Link>{' '}
+                    </div>
+                )}
             </div>
             <div className={style.containerImage}>
                 <img src={imgCar} className="" />
