@@ -2,7 +2,7 @@ import {useState} from "react";
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import Hamburger from "../icons/Hamburger";
-
+import style from "./OffcanvasIndex.module.css"
 const OffcanvasIndex = () => {
   const [show, setShow] = useState(false);
 
@@ -15,11 +15,15 @@ const OffcanvasIndex = () => {
 
       <Offcanvas show={show} onHide={handleClose} placement={"end"}>
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+          <Offcanvas.Title>BCR</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          Some text as placeholder. In real life you can have the elements you
-          have chosen. Like, text, images, lists, etc.
+          <ul className={style.listMenu}>
+            <li>Our Services</li>
+            <li>Why Us</li>
+            <li>Testimony</li>
+            <li>FAQ</li>
+          </ul>
         </Offcanvas.Body>
       </Offcanvas>
     </>
