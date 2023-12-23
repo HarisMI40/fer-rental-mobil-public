@@ -9,8 +9,17 @@
 }
 
 
+.containerFaq{
+    margin-top: 104px;
+}
 
 
+.containerFooter{
+    margin-top: 150px;
+}
+.containerCtaBanner{
+    margin-top : 66px;
+}
 
 @media (min-width : 768px){
     .containerOurService{

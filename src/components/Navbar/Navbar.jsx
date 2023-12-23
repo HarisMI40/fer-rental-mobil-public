@@ -2,11 +2,12 @@ import React from "react";
 import style from "./Navbar.module.css";
 import OffcanvasIndex from "../Offcanvas/OffcanvasIndex";
 import { Container } from "react-bootstrap";
+import Brand from "../Brand/Brand";
 const Navbar = () => {
   return (
     
     <div className={style.navbar}>
-        <div className={style.brand}></div>
+       <Brand />
         <div className={style.collapse}>
           <div className={style.item}>
             <ul>

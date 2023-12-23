@@ -5,6 +5,8 @@ import Hero from "./components/Hero/Hero";
 import OurService from "./components/OurService/OurService";
 import WhyUs from "./components/WhyUs/WhyUs";
 import CtaBanner from "./components/CtaBanner/CtaBanner";
+import Faq from "./components/Faq/Faq";
+import Footer from "./components/Footer/Footer";
 function App() {
 
   return (
@@ -23,6 +25,15 @@ function App() {
 
       <Container className={style.containerCtaBanner}>
         <CtaBanner />
+      </Container>
+
+      <Container className={style.containerFaq}>
+        <Faq/>
+      </Container>
+
+
+      <Container className={style.containerFooter}>
+        <Footer/>
       </Container>
     </div>
   );
