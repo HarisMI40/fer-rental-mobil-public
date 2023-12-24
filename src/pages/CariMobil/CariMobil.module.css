@@ -13,6 +13,6 @@
     height: 100%;
     position: absolute;
     background: none;
-    z-index: 99;
-    transition: all 0.5s;
+    /* z-index: 99; */
+    transition: all 0.1s;
 }
