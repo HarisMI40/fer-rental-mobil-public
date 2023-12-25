@@ -25,6 +25,11 @@
     line-height: 20px;
 }
 
+.item ul li a{
+    color : black;
+    text-decoration: none;
+}
+
 .toggle{
     display: block;
 }

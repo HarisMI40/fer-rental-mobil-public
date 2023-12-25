@@ -15,11 +15,11 @@ function App() {
         <Hero />
       </HeaderMain>
 
-      <Container className={style.containerOurService}>
+      <Container className={style.containerOurService} id="ourService">
         <OurService />
       </Container>
 
-      <Container>
+      <Container id="whyUs">
         <WhyUs />
       </Container>
 
@@ -27,7 +27,7 @@ function App() {
         <CtaBanner />
       </Container>
 
-      <Container className={style.containerFaq}>
+      <Container className={style.containerFaq} id="faq">
         <Faq/>
       </Container>
 

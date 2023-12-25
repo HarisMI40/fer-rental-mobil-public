@@ -11,10 +11,10 @@ const Navbar = () => {
         <div className={style.collapse}>
           <div className={style.item}>
             <ul>
-              <li>Our Services</li>
-              <li>Why Us</li>
-              <li>Testimonial</li>
-              <li>FAQ</li>
+              <li><a href="#ourService">Our Services</a></li>
+              <li><a href="#whyUs">Why Us</a></li>
+              <li><a href="#testimony">Testimony</a></li>
+              <li><a href="#faq">FAQ</a></li>
             </ul>
           </div>
         </div>
