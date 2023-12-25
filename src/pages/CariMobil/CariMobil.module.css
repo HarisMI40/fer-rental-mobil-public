@@ -16,3 +16,7 @@
     /* z-index: 99; */
     transition: all 0.1s;
 }
+
+.link{
+    text-decoration : none;
+}

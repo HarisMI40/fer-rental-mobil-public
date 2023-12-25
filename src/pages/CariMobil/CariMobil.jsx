@@ -5,6 +5,7 @@ import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import CardCariMobil from "../../components/CardCariMobil/CardCariMobil";
 import style from "./CariMobil.module.css"
 import Footer from "../../components/Footer/Footer";
+import { Link } from "react-router-dom";
 
 const CariMobil = () => {
     const [isActiveInput, setIsActiveInput] = useState(false);
@@ -49,9 +50,11 @@ const CariMobil = () => {
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                             </Card.Text>
                             <div className="d-grid gap-2">
-                                <Button variant="success" size="lg" style={{borderRadius : "0px"}}>
-                                    Pilih Mobil
-                                </Button>
+                                <Link to={`/detail-mobil/${car.id}`} className="link">
+                                    <Button variant="success" size="lg" style={{borderRadius : "0px"}}>
+                                        Pilih Mobil
+                                    </Button>
+                                </Link>
                             </div>
                             </Card.Body>
                         </Card>

@@ -5,6 +5,7 @@ import App from './pages/App/App.jsx'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import CariMobil from './pages/CariMobil/CariMobil.jsx';
+import DetailMobil from './pages/DetailMobil/DetailMobil.jsx';
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
   {
     path: "/cari-mobil",
     element: <CariMobil />,
+  },
+  {
+    path: "/detail-mobil/:idCar",
+    element: <DetailMobil />,
   },
 ]);
 
