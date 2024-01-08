@@ -1,5 +1,5 @@
 import React from "react";
-import "./ctaBanner.css";
+import "./CtaBanner.css";
 const CtaBanner = () => {
   return (
     <div className="d-flex justify-content-center">
