@@ -18,9 +18,7 @@ const Pembayaran = () => {
 
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque,
-            aperiam fugiat. Modi possimus illo temporibus consequuntur dolor
-            eveniet eligendi dignissimos accusamus placeat consequatur
-            doloremque nostrum adipisci veritatis eos, vel iure.
+            aperiam fugiat. Modi possimus illo temporibus consequuntur
           </p>
         </div>
         <div className={`${style.sidebar} border p-4`}>
