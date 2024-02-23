@@ -1,106 +1,99 @@
+.containerHero {
+  display: flex;
+  flex-direction: column;
 
-
-.containerHero{
-    display: flex;
-    flex-direction: column;
-
-    /* height: 100px; */
+  /* height: 100px; */
 }
 
-.containerDisplay{
-    /* background-color: red; */
-    flex : 1;
-    padding : 0 16px;
+.containerDisplay {
+  /* background-color: red; */
+  flex: 1;
+  padding: 0 16px;
 }
 
-.containerImage{
-    /* background-color: yellow; */
-    flex : 1;
+.containerImage {
+  /* background-color: yellow; */
+  flex: 1;
 }
 
-.textHero{
-    color: #000;
-    font-family: Arial;
-    font-size: 36px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 150%; /* 54px */
-    margin : 32px 0;
+.textHero {
+  color: #000;
+  font-family: Arial;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%; /* 54px */
+  margin: 32px 0;
 }
 
-.textParagraph{
-    color: #000;
-    font-family: Arial;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 20px; /* 142.857% */
-    margin : 16px 0;
+.textParagraph {
+  color: #000;
+  font-family: Arial;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px; /* 142.857% */
+  margin: 16px 0;
 }
 
-.buttonAction{
-    background-color: #5CB85F;
-    border:1px solid #5CB85F;
-    color : white;
-    padding : 8px 12px;
-    transition:all 0.2s;
-    text-decoration: none;
+.buttonAction {
+  background-color: #5cb85f;
+  border: 1px solid #5cb85f;
+  color: white;
+  padding: 8px 12px;
+  transition: all 0.2s;
+  text-decoration: none;
 }
 
 .buttonAction:hover {
-    background-color: #2db932;
+  background-color: #2db932;
 }
 
-
-.containerImage{
-    margin-top: 24px;
-    display: flex;
-    justify-content: end;
-    
+.containerImage {
+  margin-top: 24px;
+  display: flex;
+  justify-content: flex-end;
 }
 
-.containerImage img{
-    width: 500px;
-    /* position: absolute;
+.containerImage img {
+  width: 500px;
+  /* position: absolute;
     bottom : 0px;
     right: 0px; */
 }
 
-
-
-@media (min-width : 481px){
-    .containerImage img{
-        width: 500px;
-    }
+@media (min-width: 481px) {
+  .containerImage img {
+    width: 500px;
+  }
 }
 
-@media (min-width : 1279px){
-    .containerHero{
-        flex-direction: row;
-        height: 500px;
-    }
+@media (min-width: 1279px) {
+  .containerHero {
+    flex-direction: row;
+    height: 500px;
+  }
 
-    .containerDisplay{
-        /* margin-bottom : 87px; */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding-left: 136px;
-    }
+  .containerDisplay {
+    /* margin-bottom : 87px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 136px;
+  }
 
-    .textHero{
-        font-size: 50px;
-    }
+  .textHero {
+    font-size: 50px;
+  }
 
-    .textParagraph{
-        font-size: 18px;
-    }
+  .textParagraph {
+    font-size: 18px;
+  }
 
-
-    .containerImage img{
-        width: 800px;
-        position: absolute;
-        bottom : 0px;
-        right: 0px;
-    }
+  .containerImage img {
+    width: 800px;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+  }
 }
