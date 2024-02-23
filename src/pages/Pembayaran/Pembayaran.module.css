@@ -1,0 +1,10 @@
+.content{
+
+  flex: 2;
+  height: 400px;
+}
+
+.sidebar{
+  flex: 1;
+  height: 400px;
+}

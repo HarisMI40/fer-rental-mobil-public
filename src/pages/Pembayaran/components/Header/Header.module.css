@@ -1,0 +1,33 @@
+.container{
+  /* background-color: green; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* height: 200px; */
+}
+
+.wrapper{
+  /* background: green; */
+  display: flex;
+  justify-content: space-between;
+  margin-top:50px;
+  width: 100%;
+  font-weight: 500;
+}
+
+.step_pembayaran{
+  display: flex;
+  gap : 10px;
+}
+
+.step_pembayaran div{
+  background-color: purple;
+  display: flex;
+  color : white;
+  font-weight: 500;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+}
