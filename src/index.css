@@ -13,22 +13,22 @@
   -moz-osx-font-smoothing: grayscale;
 } */
 
-.container{
+.container {
   width: 100%;
-  padding-bottom : 116px;
+  padding-bottom: 116px;
 }
 
-.title{
+.title {
   color: #000;
   font-family: Arial;
   font-size: 24px;
   font-style: normal;
   font-weight: 700;
-  line-height: 36px; 
-  text-align: center;/* 150% */
+  line-height: 36px;
+  text-align: center; /* 150% */
 }
 
-.subtitle{
+.subtitle {
   color: #000;
   font-family: Arial;
   font-size: 14px;
@@ -38,8 +38,13 @@
   text-align: center;
 }
 
-@media (min-width : 768px){
-  .title, .subtitle{
-    text-align: left ;
+@media (min-width: 768px) {
+  .title,
+  .subtitle {
+    text-align: left;
   }
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
