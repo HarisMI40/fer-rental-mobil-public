@@ -14,8 +14,9 @@ const ListPembayaran = () => {
     setPembayaranAktif(bank);
   }
 
-  return dataPembayaran.map((pembayaran) => (
+  return dataPembayaran.map((pembayaran, index) => (
     <PembayaranItem
+      key={index}
       pembayaran={pembayaran}
       clickPembayaranHandler={clickPembayaranHandler}
       pembyaranAktif={pembyaranAktif}

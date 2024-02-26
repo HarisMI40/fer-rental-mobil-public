@@ -1,6 +1,14 @@
 import React from "react";
 import style from "./Sidebar.module.css";
+import { useDispatch } from "react-redux";
+import {
+  updateCompleted,
+  updateStep,
+} from "../../../../../../../features/stepPembayaran/stepPembayaranSlice";
+import { Link } from "react-router-dom";
+
 const Sidebar = () => {
+  const dispatch = useDispatch();
   return (
     <div className={`${style.container} border p-4 align-self-start`}>
       {/* <div>Klik konfirmasi pembayaran untuk mempercepat proses pengecekan</div> */}
@@ -30,8 +38,8 @@ const Sidebar = () => {
         <div className={`${style.upload} my-4`}></div>
       </div>
 
-      <div class="d-grid gap-2 mt-4">
-        <button class="btn btn-success" type="button">
+      <div className="d-grid gap-2 mt-4">
+        <Link to={"/tiket"} className="btn btn-success" type="button">
           Upload
           {/* 
           pertama
@@ -43,7 +51,7 @@ const Sidebar = () => {
           Jika sudah klik upload
             Konfirmasi yang mengarah ke step 3
           */}
-        </button>
+        </Link>
       </div>
     </div>
   );

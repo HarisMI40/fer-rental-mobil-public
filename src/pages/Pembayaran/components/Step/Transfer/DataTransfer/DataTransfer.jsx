@@ -49,7 +49,7 @@ const DataTransfer = () => {
         <h6>Instruksi Pembayaran</h6>
         <div>
           <Tabs
-            defaultActiveKey="profile"
+            defaultActiveKey="ATM-BCA"
             id="uncontrolled-tab-example"
             className={`my-3`}
             variant="underline"

@@ -1,8 +1,15 @@
 import React from "react";
 import fi_users from "../../../../../../assets/icon_card/fi_users.svg";
 import style from "./Sidebar.module.css";
+import { useDispatch } from "react-redux";
+import {
+  updateCompleted,
+  updateStep,
+} from "../../../../../../../features/stepPembayaran/stepPembayaranSlice";
 
 const Sidebar = () => {
+  const dispatch = useDispatch();
+
   return (
     <div className={`${style.sidebar} border p-4`}>
       <div>
@@ -66,8 +73,15 @@ const Sidebar = () => {
         <div className="fw-bold">RP. 3.500.000,00</div>
       </div>
 
-      <div class="d-grid gap-2">
-        <button class={`btn btn-success ${style.button_bayar}`} type="button">
+      <div className="d-grid gap-2">
+        <button
+          className={`btn btn-success ${style.button_bayar}`}
+          type="button"
+          onClick={() => {
+            dispatch(updateStep(2));
+            dispatch(updateCompleted(1));
+          }}
+        >
           Bayar
         </button>
       </div>

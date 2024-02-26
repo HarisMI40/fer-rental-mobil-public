@@ -1,7 +1,13 @@
 import React from "react";
 import style from "./Header.module.css";
 import fi_arrow_left from "../../../../assets/icon_card/fi_arrow_left.svg";
+import Fi_check_white from "../../../../assets/fi_check_white.jsx";
+import { useSelector } from "react-redux";
+
 const Header = () => {
+  const { data, completed, step } = useSelector(
+    (state) => state.stepPembayaran
+  );
   return (
     <div className={`container ${style.container}`}>
       <div className={`${style.wrapper}`}>
@@ -11,23 +17,23 @@ const Header = () => {
         </div>
 
         <div className={`${style.step_pembayaran}`}>
-          <div className="d-flex align-items-center gap-3">
-            <div className={`${style.container_angka} ${style.active}`}>01</div>
+          {data.map((data) => (
+            <React.Fragment key={data.nomor}>
+              <div className="d-flex align-items-center gap-3">
+                <div
+                  className={`
+                  ${style.container_angka} 
+                  ${data.nomor <= step ? style.active : ""}`}
+                >
+                  {data.nomor <= completed ? <Fi_check_white /> : data.nomor}
+                </div>
 
-            <div>Pilih Metode</div>
-          </div>
+                <div>{data.deskripsi}</div>
+              </div>
 
-          <div className={`${style.garis}`}></div>
-          <div className="d-flex align-items-center gap-3">
-            <div className={`${style.container_angka}`}>02</div>
-
-            <div>Bayar </div>
-          </div>
-          <div className={`${style.garis}`}></div>
-          <div className="d-flex align-items-center gap-3">
-            <div className={`${style.container_angka}`}>03</div>
-            <div>Tiket </div>
-          </div>
+              {data.nomor < 3 && <div className={`${style.garis}`}></div>}
+            </React.Fragment>
+          ))}
         </div>
       </div>
     </div>

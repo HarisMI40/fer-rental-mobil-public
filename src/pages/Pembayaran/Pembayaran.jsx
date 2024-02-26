@@ -7,8 +7,18 @@ import style from "./Pembayaran.module.css";
 import CardDetailPesanan from "./components/CardDetailPesanan/CardDetailPesanan";
 import PilihPembayaran from "./components/Step/PilihPembayaran";
 import Transfer from "./components/Step/Transfer/Transfer";
+import { useSelector } from "react-redux";
 
 const Pembayaran = () => {
+  const step = useSelector((state) => state.stepPembayaran.step);
+
+  let StepPembayaran = "Loading";
+  if (step == 1) {
+    StepPembayaran = <PilihPembayaran />;
+  } else if (step == 2) {
+    StepPembayaran = <Transfer />;
+  }
+
   return (
     <div>
       <HeaderMain>
@@ -17,13 +27,10 @@ const Pembayaran = () => {
       <Card>
         <CardDetailPesanan />
       </Card>
-
       <main
         className={`${style.container} container d-flex justify-content-between gap-4`}
       >
-        {/* <PilihPembayaran /> */}
-
-        <Transfer />
+        {StepPembayaran}
       </main>
     </div>
   );

@@ -9,6 +9,9 @@ import DetailMobil from "./pages/DetailMobil/DetailMobil.jsx";
 import Pembayaran from "./pages/Pembayaran/Pembayaran.jsx";
 import Tiket from "./pages/Tiket/Tiket.jsx";
 
+import store from "./../app/store";
+import { Provider } from "react-redux";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -33,7 +36,9 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
+  <Provider store={store}>
+    <React.StrictMode>
+      <RouterProvider router={router} />
+    </React.StrictMode>
+  </Provider>
 );

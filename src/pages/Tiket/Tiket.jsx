@@ -1,14 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import HeaderMain from "../../components/HeaderMain/HeaderMain";
 import Header from "../Pembayaran/components/Header/Header";
-import Card from "../../components/Card/Card";
-import CardDetailPesanan from "../Pembayaran/components/CardDetailPesanan/CardDetailPesanan";
 
 import icon_success from "../../assets/success.svg";
 import style from "./Tiket.module.css";
 import fi_download from "../../assets/fi_download.svg";
+import { useDispatch } from "react-redux";
+import {
+  updateCompleted,
+  updateStep,
+} from "../../../features/stepPembayaran/stepPembayaranSlice";
 
 const Tiket = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(updateStep(3));
+    dispatch(updateCompleted(2));
+  }, []);
+
   return (
     <div>
       <HeaderMain>
