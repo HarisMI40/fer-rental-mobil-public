@@ -1,0 +1,19 @@
+.container{
+  flex : 1
+}
+
+.container button{
+  border-radius: 0;
+}
+
+.boxs div{
+  background-color: #FA2C5A;
+  color:white;
+  padding : 3px;
+}
+
+.upload{
+  width: 100%;
+  height: 100px;
+  background-color: rgb(215, 215, 215);
+}

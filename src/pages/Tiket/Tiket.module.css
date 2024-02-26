@@ -1,0 +1,17 @@
+.pdf_preview{
+  width: 80%;
+  background-color: #D0D0D0;
+  height: 200px;
+  margin: 0 auto;
+  border : 3px dotted rgb(188, 188, 188);
+}
+
+.button_unduh{
+  border : 1px solid var(--color-primary);
+  color : var(--color-primary);
+  border-radius : 0
+}
+
+/* .button_unduh:hover{
+  background-color: var(--color-primary);
+} */

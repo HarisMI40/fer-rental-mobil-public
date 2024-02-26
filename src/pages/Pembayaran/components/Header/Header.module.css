@@ -19,12 +19,13 @@
   display: flex;
   gap : 10px;
   align-items: center;
+  /* color : var(--color-primary) */
 }
 
 .step_pembayaran .container_angka{
-  border:1px solid purple;
+  border:1px solid var(--color-primary);
   display: flex;
-  color : purple;
+  color : var(--color-primary);
   font-weight: 500;
   align-items: center;
   justify-content: center;
@@ -34,12 +35,12 @@
 }
 
 .step_pembayaran .container_angka.active{
-  background-color: purple;
+  background-color: var(--color-primary);
   color:white
 }
 
 .step_pembayaran .garis{
-  background-color: purple;
+  background-color: var(--color-primary);
   height: 3px;
   width: 30px;
 }

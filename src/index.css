@@ -13,6 +13,14 @@
   -moz-osx-font-smoothing: grayscale;
 } */
 
+:root {
+  --color-primary : #0D28A6;
+}
+
+p, h6{
+  margin : 0;
+}
+
 .container{
   width: 100%;
   padding-bottom : 116px;

@@ -7,6 +7,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import CariMobil from "./pages/CariMobil/CariMobil.jsx";
 import DetailMobil from "./pages/DetailMobil/DetailMobil.jsx";
 import Pembayaran from "./pages/Pembayaran/Pembayaran.jsx";
+import Tiket from "./pages/Tiket/Tiket.jsx";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
   {
     path: "/pembayaran",
     element: <Pembayaran />,
+  },
+  {
+    path: "/tiket",
+    element: <Tiket />,
   },
 ]);
 
