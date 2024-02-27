@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 
 import PembayaranItem from "./PembayaranItem";
+import { useDispatch } from "react-redux";
+import { updateMetodePembayaran } from "../../../../../../../../features/stepPembayaran/stepPembayaranSlice";
 
 const ListPembayaran = () => {
+  const dispatch = useDispatch();
   const dataPembayaran = [
     { bank: "BCA", deskripsi: "BCA Transfer" },
     { bank: "BNI", deskripsi: "BNI Transfer" },
@@ -12,6 +15,7 @@ const ListPembayaran = () => {
 
   function clickPembayaranHandler(bank) {
     setPembayaranAktif(bank);
+    dispatch(updateMetodePembayaran(bank));
   }
 
   return dataPembayaran.map((pembayaran, index) => (

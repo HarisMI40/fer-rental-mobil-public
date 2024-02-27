@@ -7,6 +7,7 @@ const stepPembayaran = createSlice({
   {
     step : 1,
     completed : 0,
+    metode_pembayaran : "",
     data : [
     {
       "nomor" : "1",
@@ -31,9 +32,14 @@ const stepPembayaran = createSlice({
     },
     updateCompleted : (state, action) => {
       state.completed = action.payload
+    },
+
+    updateMetodePembayaran : (state, action) => {
+      state.metode_pembayaran = action.payload;
     }
+
   }
 });
 
-export const {updateStep, updateCompleted} = stepPembayaran.actions 
+export const {updateStep, updateCompleted, updateMetodePembayaran} = stepPembayaran.actions 
 export default stepPembayaran.reducer
