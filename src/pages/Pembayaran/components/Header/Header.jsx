@@ -5,16 +5,28 @@ import Fi_check_white from "../../../../assets/fi_check_white.jsx";
 import { useSelector } from "react-redux";
 
 const Header = () => {
-  const { data, completed, step } = useSelector(
+  const { data, completed, step, metode_pembayaran } = useSelector(
     (state) => state.stepPembayaran
   );
+
+  let currentPath = "";
+  if (step == 2) {
+    currentPath = (
+      <>
+        <img src={fi_arrow_left} /> Pembayaran{" "}
+      </>
+    );
+  } else if (step == 3) {
+    currentPath = (
+      <>
+        <img src={fi_arrow_left} /> {metode_pembayaran} Transfer
+      </>
+    );
+  }
   return (
     <div className={`container ${style.container}`}>
       <div className={`${style.wrapper}`}>
-        <div className="">
-          <img src={fi_arrow_left} />
-          Pembayaran
-        </div>
+        <div className="">{currentPath}</div>
 
         <div className={`${style.step_pembayaran}`}>
           {data.map((data) => (

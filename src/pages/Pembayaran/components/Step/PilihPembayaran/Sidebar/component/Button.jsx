@@ -8,7 +8,6 @@ import {
 const Button = (props) => {
   const dispatch = useDispatch();
   const { metode_pembayaran } = useSelector((state) => state.stepPembayaran);
-  console.log(metode_pembayaran);
 
   return (
     <button

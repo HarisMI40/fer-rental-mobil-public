@@ -36,6 +36,7 @@ const stepPembayaran = createSlice({
 
     updateMetodePembayaran : (state, action) => {
       state.metode_pembayaran = action.payload;
+      // console.log(state.metode_pembayaran)
     }
 
   }
