@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const LoginPage = () => {
   return (
-    <AuthLayout title="Welcome Back!">
+    <AuthLayout title="Welcome Back! uhuy">
       <FormLogin />
       <p className="text-sm mt-5 text-center">
         Don't have an account?{" "}
