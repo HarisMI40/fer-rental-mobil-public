@@ -1,0 +1,13 @@
+.containerDataTransfer{
+  flex: 2;
+}
+
+.boxs div{
+  background-color: #FA2C5A;
+  color:white;
+  padding : 3px;
+}
+
+/* .tab .nav-link{
+  color: red !important;
+} */

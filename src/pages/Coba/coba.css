@@ -1,0 +1,13 @@
+
+
+@media (min-width : 300px){
+  .kotak {
+    background-color: green;
+  }
+}
+
+@media(min-width: 1200px){
+  .kotak {
+    background-color: red;
+  }
+}
