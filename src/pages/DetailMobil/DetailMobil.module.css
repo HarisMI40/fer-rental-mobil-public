@@ -1,7 +1,42 @@
-.containerCardCariMobil{
-    position: relative;
-    top : -66px;
+.containerCardCariMobil {
+  position: relative;
+  top: -66px;
 }
+
+.formControl {
+  color: #5cb85f;
+}
+/* DetailMobil.module.css */
+.selectedRange {
+  background-color: #e8f6f1 !important;
+}
+
+.selectedStart {
+  background-color: #35b0a7 !important;
+  border-radius: 50%;
+}
+
+.selectedEnd {
+  background-color: #35b0a7 !important;
+  border-radius: 500%;
+}
+
+.roundedCircle {
+  border-radius: 100% !important;
+}
+
+.datePicker {
+  min-width: 360px;
+}
+
+.popCon {
+  min-width: 300px !important;
+}
+
+/* DetailMobil.module.css or global CSS */
+/* .date-picker-wrapper .react-datepicker__month-container {
+  min-width: 360px;
+} */
 
 /* .card img{
     height: 160px;
