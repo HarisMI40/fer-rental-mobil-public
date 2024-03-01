@@ -39,7 +39,11 @@ const Sidebar = () => {
       </div>
 
       <div className="d-grid gap-2 mt-4">
-        <Link to={"/tiket"} className="btn btn-success" type="button">
+        <Link
+          to={"/tiket"}
+          className={`btn btn-success ${style.button}`}
+          type="button"
+        >
           Upload
           {/* 
           pertama

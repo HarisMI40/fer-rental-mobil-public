@@ -5,7 +5,7 @@ import Card from "../../components/Card/Card";
 import style from "./Pembayaran.module.css";
 
 import CardDetailPesanan from "./components/CardDetailPesanan/CardDetailPesanan";
-import PilihPembayaran from "./components/Step/PilihPembayaran";
+import PilihPembayaran from "./components/Step/PilihPembayaran/Index";
 import Transfer from "./components/Step/Transfer/Transfer";
 import { useSelector } from "react-redux";
 

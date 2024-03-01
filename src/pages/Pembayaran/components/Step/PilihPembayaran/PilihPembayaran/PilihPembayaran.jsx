@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import style from "./PilihPembayaran.module.css";
 import ListPembayaran from "./ListPembayaran/ListPembayaran";
+import Sidebar from "../Sidebar/Sidebar";
 const PilihPembayaran = () => {
   return (
     <div className={`${style.content} border p-4`}>

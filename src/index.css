@@ -12,10 +12,6 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 } */
-
-<<<<<<< HEAD
-.container {
-=======
 :root {
   --color-primary : #0D28A6;
 }
@@ -25,7 +21,6 @@ p, h6{
 }
 
 .container{
->>>>>>> feature/halaman-pembayaran
   width: 100%;
   padding-bottom: 116px;
 }
