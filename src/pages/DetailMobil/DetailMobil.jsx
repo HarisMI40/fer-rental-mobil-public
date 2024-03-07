@@ -11,18 +11,24 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { addDays } from "date-fns";
 import { Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const DetailMobil = () => {
   const [mobil, setMobil] = useState({});
   const { idCar } = useParams();
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
+  const navigate = useNavigate();
 
   const OnChange = (dates) => {
     const [start, end] = dates;
     setStartDate(start);
     setEndDate(end);
   };
+
+  function handleClick() {
+    navigate("/Pembayaran"); // Use navigate directly in handleClick function
+  }
 
   useEffect(() => {
     const getData = async () => {
@@ -108,7 +114,7 @@ const DetailMobil = () => {
                   </div>
                   <div>
                     <div className="d-grid gap-2">
-                      <Button variant="success" size="md">
+                      <Button variant="success" size="md" onClick={handleClick}>
                         Lanjut Pembayaran
                       </Button>
                     </div>
