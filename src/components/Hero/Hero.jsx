@@ -22,13 +22,13 @@ const Hero = ({ isButtonActive = true }) => {
             <Link to={`cari-mobil`} className={style.buttonAction}>
               Mulai Sewa Mobil
             </Link>{" "}
-            <ButtonAuth text="Login" />
+            {/* <ButtonAuth text="Login" /> */}
             {/* numpang testing yoww */}
           </div>
         )}
       </div>
       <div className={style.containerImage}>
-        <img src={imgCar} className="" />
+        <img src={imgCar} className={`${style.imageHero}`}  />
       </div>
     </div>
   );

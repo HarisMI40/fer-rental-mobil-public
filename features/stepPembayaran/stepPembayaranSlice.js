@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import dataRekening from "../../constant/dataRekening";
 
 const stepPembayaran = createSlice({
   name : "stepembayaran",
@@ -35,8 +36,8 @@ const stepPembayaran = createSlice({
     },
 
     updateMetodePembayaran : (state, action) => {
-      state.metode_pembayaran = action.payload;
-      // console.log(state.metode_pembayaran)
+      let rekeningDipilih = dataRekening.find(rek => rek.bank == action.payload)
+      state.metode_pembayaran = rekeningDipilih;
     }
 
   }

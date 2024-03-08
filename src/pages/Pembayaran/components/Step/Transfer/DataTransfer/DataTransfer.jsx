@@ -1,8 +1,13 @@
 import React from "react";
 import style from "./DataTransfer.module.css";
 import { Tab, Tabs } from "react-bootstrap";
+import { useSelector } from "react-redux";
 
 const DataTransfer = () => {
+  const bank = useSelector(state => state.stepPembayaran.metode_pembayaran);
+
+  console.log(bank);
+  
   return (
     <div className={`${style.containerDataTransfer} d-flex flex-column gap-3`}>
       <div className="border p-4 d-flex justify-content-between align-items-start">
@@ -20,9 +25,9 @@ const DataTransfer = () => {
         <h6>Lakukan Transfer Ke</h6>
 
         <div className="d-flex align-items-start gap-4 mt-3">
-          <div className={`border px-4`}>BCA</div>
+          <div className={`border px-4`}>{bank.bank}</div>
           <div>
-            <p>BCA Transfer</p>
+            <p>{bank.deskripsi}</p>
             <p>a.n Binar Car Rental</p>
           </div>
         </div>
@@ -31,7 +36,7 @@ const DataTransfer = () => {
           <div className="mt-3">
             <label className="mb-2">Nomor Rekening</label>
             <div className="border p-2 d-flex justify-content-between align-items-center">
-              <div className="text-muted">54104257877</div>
+              <div className="text-muted">{bank.no_rek}</div>
               <div className="border p-1">copy</div>
             </div>
           </div>
@@ -54,15 +59,15 @@ const DataTransfer = () => {
             className={`my-3`}
             variant="underline"
           >
-            <Tab eventKey="ATM-BCA" title="ATM BCA">
+            <Tab eventKey="ATM-BCA" title={`ATM ${bank.bank}`}>
               <ul className="text-muted">
                 <li>Masukkan kartu ATM, lalu PIN</li>
                 <li>
-                  Pilih menu 'Transaksi Lainnya' 'Transfer' – 'Ke Rek BCA
+                  Pilih menu 'Transaksi Lainnya' 'Transfer' – 'Ke Rek {bank.bank}
                   Virtual Account'
                 </li>
                 <li>
-                  Masukkan nomor BCA Virtual Account: 70020+Order ID Contoh: No.
+                  Masukkan nomor {bank.bank} Virtual Account: 70020+Order ID Contoh: No.
                   Peserta: 12345678, maka ditulis 7002012345678
                 </li>
                 <li>
@@ -72,15 +77,15 @@ const DataTransfer = () => {
                 <li> Ambil dan simpanlah bukti transaksi tersebut</li>
               </ul>
             </Tab>
-            <Tab eventKey="M-BCA" title="M-BCA">
+            <Tab eventKey="M-BCA" title={`M-${bank.bank}`}>
               <ul className="text-muted">
                 <li>Masukkan kartu ATM, lalu PIN</li>
                 <li>
-                  Pilih menu 'Transaksi Lainnya' 'Transfer' – 'Ke Rek BCA
+                  Pilih menu 'Transaksi Lainnya' 'Transfer' – 'Ke Rek {bank.bank}
                   Virtual Account'
                 </li>
                 <li>
-                  Masukkan nomor BCA Virtual Account: 70020+Order ID Contoh: No.
+                  Masukkan nomor {bank.bank} Virtual Account: 70020+Order ID Contoh: No.
                   Peserta: 12345678, maka ditulis 7002012345678
                 </li>
                 <li>
@@ -90,11 +95,11 @@ const DataTransfer = () => {
                 <li> Ambil dan simpanlah bukti transaksi tersebut</li>
               </ul>
             </Tab>
-            <Tab eventKey="BCA-KLIK" title="BCA KLIK">
+            <Tab eventKey="BCA-KLIK" title={`${bank.bank} KLIK`}>
               <ul className="text-muted">
                 <li>Masukkan kartu ATM, lalu PIN</li>
                 <li>
-                  Pilih menu 'Transaksi Lainnya' 'Transfer' – 'Ke Rek BCA
+                  Pilih menu 'Transaksi Lainnya' 'Transfer' – 'Ke Rek {bank.bank}
                   Virtual Account'
                 </li>
                 <li>
@@ -112,11 +117,11 @@ const DataTransfer = () => {
               <ul className="text-muted">
                 <li>Masukkan kartu ATM, lalu PIN</li>
                 <li>
-                  Pilih menu 'Transaksi Lainnya' 'Transfer' – 'Ke Rek BCA
+                  Pilih menu 'Transaksi Lainnya' 'Transfer' – 'Ke Rek {bank.bank}
                   Virtual Account'
                 </li>
                 <li>
-                  Masukkan nomor BCA Virtual Account: 70020+Order ID Contoh: No.
+                  Masukkan nomor {bank.bank} Virtual Account: 70020+Order ID Contoh: No.
                   Peserta: 12345678, maka ditulis 7002012345678
                 </li>
                 <li>
