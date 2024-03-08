@@ -1,24 +1,24 @@
-.container{
-  flex : 1
+.container {
+  flex: 1;
 }
 
-.container button{
+.container button {
   border-radius: 0;
 }
 
-.boxs div{
-  background-color: #FA2C5A;
-  color:white;
-  padding : 3px;
+.boxs div {
+  background-color: #fa2c5a;
+  color: white;
+  padding: 3px;
 }
 
-.upload{
+.upload {
   width: 100%;
   height: 100px;
   background-color: rgb(215, 215, 215);
 }
 
-.button{
+.button {
   background-color: green;
   border-radius: 0;
 }

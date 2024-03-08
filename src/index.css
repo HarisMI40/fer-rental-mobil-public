@@ -12,16 +12,22 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 } */
+
 :root {
-  --color-primary : #0D28A6;
+  --color-primary: #0d28a6;
 }
 
-p, h6{
-  margin : 0;
+p,
+h6 {
+  margin: 0;
 }
 
-.container{
+.container {
   width: 100%;
+  padding-bottom: 116px;
+}
+
+.title {
   padding-bottom: 116px;
 }
 
@@ -31,6 +37,11 @@ p, h6{
   font-size: 24px;
   font-style: normal;
   font-weight: 700;
+  line-height: 36px;
+  text-align: center; /* 150% */
+}
+
+.subtitle {
   line-height: 36px;
   text-align: center; /* 150% */
 }

@@ -1,4 +1,3 @@
-import React from "react";
 import style from "./hero.module.css";
 import imgCar from "../../assets/img_car.svg";
 import { Link } from "react-router-dom";
@@ -28,7 +27,7 @@ const Hero = ({ isButtonActive = true }) => {
         )}
       </div>
       <div className={style.containerImage}>
-        <img src={imgCar} className={`${style.imageHero}`}  />
+        <img src={imgCar} className={`${style.imageHero}`} />
       </div>
     </div>
   );
