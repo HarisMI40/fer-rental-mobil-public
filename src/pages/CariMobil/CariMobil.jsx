@@ -69,7 +69,7 @@ const CariMobil = () => {
                       <Button
                         variant="success"
                         size="md"
-                        style={{ borderRadius: "0px", marginTop : "10px" }}
+                        style={{ borderRadius: "0px", marginTop: "10px" }}
                       >
                         Pilih Mobil
                       </Button>

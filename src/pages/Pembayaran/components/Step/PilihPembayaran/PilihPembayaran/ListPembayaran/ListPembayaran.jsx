@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 import PembayaranItem from "./PembayaranItem";
 import { useDispatch } from "react-redux";
@@ -7,11 +7,10 @@ import dataRekening from "../../../../../../../../constant/dataRekening";
 
 const ListPembayaran = () => {
   const dispatch = useDispatch();
- 
+
   const [pembyaranAktif, setPembayaranAktif] = useState();
   const dataPembayaran = dataRekening;
 
-  
   function clickPembayaranHandler(bank) {
     setPembayaranAktif(bank);
     dispatch(updateMetodePembayaran(bank));

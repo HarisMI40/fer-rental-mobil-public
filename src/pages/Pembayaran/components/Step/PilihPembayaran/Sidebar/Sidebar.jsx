@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import fi_users from "../../../../../../assets/icon_card/fi_users.svg";
 import style from "./Sidebar.module.css";
 
@@ -6,28 +6,29 @@ import Button from "./component/Button";
 import getNumberOfDays from "../../../../../../../helpers/getNumberOfDays";
 import axios from "axios";
 
-
 const Sidebar = () => {
-
   const [dataOrder, setDataOrder] = useState({});
-  useEffect( () => {
-    async function getData(){
+  useEffect(() => {
+    async function getData() {
       const idOrder = localStorage.getItem("idOrder");
-      
-      const response = await axios.get(`https://api-car-rental.binaracademy.org/customer/order/${idOrder}`, {
-        headers : {
-          "access_token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImN1c3RvbWVyQGJjci5pbyIsInJvbGUiOiJDdXN0b21lciIsImlhdCI6MTcwOTg2MzY1OX0.r4s8OrNGy96LM4xpP4QGEiqZspBcby8jRdmjBglO518"
+
+      const response = await axios.get(
+        `https://api-car-rental.binaracademy.org/customer/order/${idOrder}`,
+        {
+          headers: {
+            access_token:
+              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImN1c3RvbWVyQGJjci5pbyIsInJvbGUiOiJDdXN0b21lciIsImlhdCI6MTcwOTg2MzY1OX0.r4s8OrNGy96LM4xpP4QGEiqZspBcby8jRdmjBglO518",
+          },
         }
-      })
+      );
 
       const data = response.data;
 
       setDataOrder(data);
-    } 
+    }
 
     getData();
-  
-  }, [] );
+  }, []);
 
   // return;
 
@@ -63,7 +64,9 @@ const Sidebar = () => {
             </div>
             <div className="">
               <div className="">
-                Rp {dataOrder?.Car?.price * getNumberOfDays("2024-01-01", "2024-01-02")}
+                Rp{" "}
+                {dataOrder?.Car?.price *
+                  getNumberOfDays("2024-01-01", "2024-01-02")}
               </div>
             </div>
           </div>

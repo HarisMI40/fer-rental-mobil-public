@@ -1,15 +1,31 @@
-.pdf_preview{
-  width: 80%;
-  background-color: #D0D0D0;
+.pdf_preview {
+  /* width: 80%; */
+  width: 557px;
+  height: 162px;
+  background-color: #d0d0d0;
   height: 200px;
   margin: 0 auto;
-  border : 3px dotted rgb(188, 188, 188);
+  /* border: 3px dotted rgb(188, 188, 188); */
+  /* border: 5px solid #d0d0d0;
+  border-style: dashed;
+  color: black; */
+
+  border: 2px dashed #b3b3b3;
 }
 
-.button_unduh{
-  border : 1px solid var(--color-primary);
-  color : var(--color-primary);
-  border-radius : 0
+.button_unduh {
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+  border-radius: 0;
+}
+
+.containerFooter {
+  margin-top: 160px;
+  margin-left: 179px;
+}
+
+.marginImage {
+  margin-top: 85px;
 }
 
 /* .button_unduh:hover{

@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import CardCariMobil from "../../components/CardCariMobil/CardCariMobil";
 import HeaderMain from "../../components/HeaderMain/HeaderMain";
-import Hero from "../../components/Hero/Hero";
 import style from "./DetailMobil.module.css";
 import { Card, Col, Container, Row } from "react-bootstrap";
 import CardDetail from "../../components/CardDetail/CardDetail";
 import Footer from "../../components/Footer/Footer";
-import { useParams, useSearchParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { addDays } from "date-fns";
@@ -16,7 +15,7 @@ import axios from "axios";
 import formatDate from "../../../helpers/formatDate";
 
 const DetailMobil = () => {
-  const [isLoading, setLoading] = useState({orderMobil : false});
+  const [isLoading, setLoading] = useState({ orderMobil: false });
   const [mobil, setMobil] = useState({});
   const { idCar } = useParams();
   const [startDate, setStartDate] = useState(null);
@@ -30,35 +29,38 @@ const DetailMobil = () => {
   };
 
   async function saveOrder(data) {
-    setLoading({orderMobil : true})
+    setLoading({ orderMobil: true });
     try {
-      const response = await axios.post("https://api-car-rental.binaracademy.org/customer/order", data, {
-        headers : {
-          "access_token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImN1c3RvbWVyQGJjci5pbyIsInJvbGUiOiJDdXN0b21lciIsImlhdCI6MTcwOTg2MzY1OX0.r4s8OrNGy96LM4xpP4QGEiqZspBcby8jRdmjBglO518"
+      const response = await axios.post(
+        "https://api-car-rental.binaracademy.org/customer/order",
+        data,
+        {
+          headers: {
+            access_token:
+              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImN1c3RvbWVyQGJjci5pbyIsInJvbGUiOiJDdXN0b21lciIsImlhdCI6MTcwOTg2MzY1OX0.r4s8OrNGy96LM4xpP4QGEiqZspBcby8jRdmjBglO518",
+          },
         }
-      });
+      );
 
       localStorage.setItem("idOrder", response.data.id);
-      alert("Berhasil Order Mobil")
+      alert("Berhasil Order Mobil");
       console.log(response);
     } catch (error) {
-      console.log(error)
+      console.log(error);
+    } finally {
+      setLoading({ orderMobil: false });
     }
-    finally{
-      setLoading({orderMobil : false})
-    }
-  } 
+  }
 
   function handleClick() {
     const formData = {
-      start_rent_at : formatDate(startDate),
-      finish_rent_at : formatDate(endDate),
-      car_id : mobil.id
-    }
+      start_rent_at: formatDate(startDate),
+      finish_rent_at: formatDate(endDate),
+      car_id: mobil.id,
+    };
 
     saveOrder(formData);
     navigate("/Pembayaran"); // Use navigate directly in handleClick function
-    
   }
 
   useEffect(() => {
@@ -145,8 +147,15 @@ const DetailMobil = () => {
                   </div>
                   <div>
                     <div className="d-grid gap-2">
-                      <Button variant="success" size="md" onClick={handleClick} disabled={isLoading.orderMobil}>
-                        {isLoading.orderMobil ? "Loading..." : "Lanjut Pembayaran"} 
+                      <Button
+                        variant="success"
+                        size="md"
+                        onClick={handleClick}
+                        disabled={isLoading.orderMobil}
+                      >
+                        {isLoading.orderMobil
+                          ? "Loading..."
+                          : "Lanjut Pembayaran"}
                       </Button>
                     </div>
                   </div>

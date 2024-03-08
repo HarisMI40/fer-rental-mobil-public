@@ -13,6 +13,7 @@ import LoginPage from "./pages/login";
 import RegisterPage from "./pages/register";
 import Pembayaran from "./pages/Pembayaran/Pembayaran";
 import Tiket from "./pages/Tiket/Tiket";
+import "./index.css";
 
 const router = createBrowserRouter([
   {

@@ -1,13 +1,12 @@
-import React from "react";
 import style from "./DataTransfer.module.css";
 import { Tab, Tabs } from "react-bootstrap";
 import { useSelector } from "react-redux";
 
 const DataTransfer = () => {
-  const bank = useSelector(state => state.stepPembayaran.metode_pembayaran);
+  const bank = useSelector((state) => state.stepPembayaran.metode_pembayaran);
 
   console.log(bank);
-  
+
   return (
     <div className={`${style.containerDataTransfer} d-flex flex-column gap-3`}>
       <div className="border p-4 d-flex justify-content-between align-items-start">
@@ -63,12 +62,13 @@ const DataTransfer = () => {
               <ul className="text-muted">
                 <li>Masukkan kartu ATM, lalu PIN</li>
                 <li>
-                  Pilih menu 'Transaksi Lainnya' 'Transfer' – 'Ke Rek {bank.bank}
+                  Pilih menu 'Transaksi Lainnya' 'Transfer' – 'Ke Rek{" "}
+                  {bank.bank}
                   Virtual Account'
                 </li>
                 <li>
-                  Masukkan nomor {bank.bank} Virtual Account: 70020+Order ID Contoh: No.
-                  Peserta: 12345678, maka ditulis 7002012345678
+                  Masukkan nomor {bank.bank} Virtual Account: 70020+Order ID
+                  Contoh: No. Peserta: 12345678, maka ditulis 7002012345678
                 </li>
                 <li>
                   Layar ATM akan menampilkan konfirmasi, ikuti instruksi untuk
@@ -81,12 +81,13 @@ const DataTransfer = () => {
               <ul className="text-muted">
                 <li>Masukkan kartu ATM, lalu PIN</li>
                 <li>
-                  Pilih menu 'Transaksi Lainnya' 'Transfer' – 'Ke Rek {bank.bank}
+                  Pilih menu 'Transaksi Lainnya' 'Transfer' – 'Ke Rek{" "}
+                  {bank.bank}
                   Virtual Account'
                 </li>
                 <li>
-                  Masukkan nomor {bank.bank} Virtual Account: 70020+Order ID Contoh: No.
-                  Peserta: 12345678, maka ditulis 7002012345678
+                  Masukkan nomor {bank.bank} Virtual Account: 70020+Order ID
+                  Contoh: No. Peserta: 12345678, maka ditulis 7002012345678
                 </li>
                 <li>
                   Layar ATM akan menampilkan konfirmasi, ikuti instruksi untuk
@@ -99,7 +100,8 @@ const DataTransfer = () => {
               <ul className="text-muted">
                 <li>Masukkan kartu ATM, lalu PIN</li>
                 <li>
-                  Pilih menu 'Transaksi Lainnya' 'Transfer' – 'Ke Rek {bank.bank}
+                  Pilih menu 'Transaksi Lainnya' 'Transfer' – 'Ke Rek{" "}
+                  {bank.bank}
                   Virtual Account'
                 </li>
                 <li>
@@ -117,12 +119,13 @@ const DataTransfer = () => {
               <ul className="text-muted">
                 <li>Masukkan kartu ATM, lalu PIN</li>
                 <li>
-                  Pilih menu 'Transaksi Lainnya' 'Transfer' – 'Ke Rek {bank.bank}
+                  Pilih menu 'Transaksi Lainnya' 'Transfer' - 'Ke Rek{" "}
+                  {bank.bank}
                   Virtual Account'
                 </li>
                 <li>
-                  Masukkan nomor {bank.bank} Virtual Account: 70020+Order ID Contoh: No.
-                  Peserta: 12345678, maka ditulis 7002012345678
+                  Masukkan nomor {bank.bank} Virtual Account: 70020+Order ID
+                  Contoh: No. Peserta: 12345678, maka ditulis 7002012345678
                 </li>
                 <li>
                   Layar ATM akan menampilkan konfirmasi, ikuti instruksi untuk

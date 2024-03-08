@@ -1,10 +1,9 @@
-
-.sidebar{
+.sidebar {
   flex: 1;
   /* height: 400px; */
 }
 
-.button_bayar{
+.button_bayar {
   border-radius: 0;
   background: green;
 }
