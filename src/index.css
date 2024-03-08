@@ -51,7 +51,3 @@ p, h6{
     text-align: left;
   }
 }
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;

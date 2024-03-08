@@ -68,8 +68,8 @@ const CariMobil = () => {
                     <Link to={`/detail-mobil/${car.id}`} className="link">
                       <Button
                         variant="success"
-                        size="lg"
-                        style={{ borderRadius: "0px" }}
+                        size="md"
+                        style={{ borderRadius: "0px", marginTop : "10px" }}
                       >
                         Pilih Mobil
                       </Button>

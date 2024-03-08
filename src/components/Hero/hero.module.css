@@ -52,11 +52,12 @@
 .containerImage {
   margin-top: 24px;
   display: flex;
+  /* background-color: red; */
   justify-content: flex-end;
 }
 
-.containerImage img {
-  width: 500px;
+.imageHero{
+  width: 44%;
   /* position: absolute;
     bottom : 0px;
     right: 0px; */
@@ -91,7 +92,8 @@
   }
 
   .containerImage img {
-    width: 800px;
+    /* width: 800px; */
+    width: 44%;
     position: absolute;
     bottom: 0px;
     right: 0px;

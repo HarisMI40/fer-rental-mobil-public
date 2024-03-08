@@ -12,8 +12,11 @@ import "react-datepicker/dist/react-datepicker.css";
 import { addDays } from "date-fns";
 import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import formatDate from "../../../helpers/formatDate";
 
 const DetailMobil = () => {
+  const [isLoading, setLoading] = useState({orderMobil : false});
   const [mobil, setMobil] = useState({});
   const { idCar } = useParams();
   const [startDate, setStartDate] = useState(null);
@@ -26,8 +29,36 @@ const DetailMobil = () => {
     setEndDate(end);
   };
 
+  async function saveOrder(data) {
+    setLoading({orderMobil : true})
+    try {
+      const response = await axios.post("https://api-car-rental.binaracademy.org/customer/order", data, {
+        headers : {
+          "access_token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImN1c3RvbWVyQGJjci5pbyIsInJvbGUiOiJDdXN0b21lciIsImlhdCI6MTcwOTg2MzY1OX0.r4s8OrNGy96LM4xpP4QGEiqZspBcby8jRdmjBglO518"
+        }
+      });
+
+      localStorage.setItem("idOrder", response.data.id);
+      alert("Berhasil Order Mobil")
+      console.log(response);
+    } catch (error) {
+      console.log(error)
+    }
+    finally{
+      setLoading({orderMobil : false})
+    }
+  } 
+
   function handleClick() {
+    const formData = {
+      start_rent_at : formatDate(startDate),
+      finish_rent_at : formatDate(endDate),
+      car_id : mobil.id
+    }
+
+    saveOrder(formData);
     navigate("/Pembayaran"); // Use navigate directly in handleClick function
+    
   }
 
   useEffect(() => {
@@ -114,8 +145,8 @@ const DetailMobil = () => {
                   </div>
                   <div>
                     <div className="d-grid gap-2">
-                      <Button variant="success" size="md" onClick={handleClick}>
-                        Lanjut Pembayaran
+                      <Button variant="success" size="md" onClick={handleClick} disabled={isLoading.orderMobil}>
+                        {isLoading.orderMobil ? "Loading..." : "Lanjut Pembayaran"} 
                       </Button>
                     </div>
                   </div>
