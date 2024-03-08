@@ -1,0 +1,22 @@
+.containerCardCariMobil{
+    position: relative;
+    top : -66px;
+
+}
+
+.containerFooter{
+    margin-top: 150px;
+}
+
+.bayangan {
+    width : 100%;
+    height: 100%;
+    position: absolute;
+    background: none;
+    /* z-index: 99; */
+    transition: all 0.1s;
+}
+
+.link{
+    text-decoration : none;
+}

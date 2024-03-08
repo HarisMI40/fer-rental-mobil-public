@@ -1,0 +1,46 @@
+.container{
+  /* background-color: green; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* height: 200px; */
+}
+
+.wrapper{
+  /* background: green; */
+  display: flex;
+  justify-content: space-between;
+  margin-top:50px;
+  width: 100%;
+  font-weight: 500;
+}
+
+.step_pembayaran{
+  display: flex;
+  gap : 10px;
+  align-items: center;
+  /* color : var(--color-primary) */
+}
+
+.step_pembayaran .container_angka{
+  border:1px solid var(--color-primary);
+  display: flex;
+  color : var(--color-primary);
+  font-weight: 500;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 100%;
+}
+
+.step_pembayaran .container_angka.active{
+  background-color: var(--color-primary);
+  color:white
+}
+
+.step_pembayaran .garis{
+  background-color: var(--color-primary);
+  height: 3px;
+  width: 30px;
+}

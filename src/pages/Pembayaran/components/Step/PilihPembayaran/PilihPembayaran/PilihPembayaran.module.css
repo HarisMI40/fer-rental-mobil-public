@@ -1,0 +1,9 @@
+
+.content{
+  flex: 2;
+  /* height: 400px; */
+} 
+
+.containerPilihPembayaran:hover {
+  background-color: rgba(184, 184, 184, 0.141);
+}

@@ -1,0 +1,20 @@
+.hamburger{
+    cursor: pointer;
+}
+
+.listMenu{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap : 10px;
+    padding : 0;
+}
+
+.listMenu li a {
+    color : black;
+    text-decoration: none;
+}
+
+.listMenu li a:hover {
+    color : rgb(123, 122, 122);
+}

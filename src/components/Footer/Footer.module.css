@@ -1,0 +1,14 @@
+.subtitle{
+    text-align: left;
+}
+
+.listMedsos{
+    display: flex;
+    list-style: none;
+    padding : 0;
+    gap : 16px;
+}
+
+.brand, .listMedsos {
+    margin-top : 16px;
+}
