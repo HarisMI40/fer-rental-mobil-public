@@ -6,7 +6,11 @@ const stepPembayaran = createSlice({
   initialState: {
     step: 1,
     completed: 0,
-    metode_pembayaran: "",
+    metode_pembayaran: {
+      bank : "",
+      deskripsi : "",
+      no_rek : ""
+    },
     data: [
       {
         nomor: "1",
