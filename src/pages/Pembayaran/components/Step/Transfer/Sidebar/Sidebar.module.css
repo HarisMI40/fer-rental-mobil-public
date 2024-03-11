@@ -13,12 +13,21 @@
 }
 
 .upload {
+  display: flex;
+  justify-content: center;
   width: 100%;
-  height: 100px;
+  height: 200px;
   background-color: rgb(215, 215, 215);
 }
 
+.upload img{
+  object-fit: cover;
+}
 .button {
   background-color: green;
   border-radius: 0;
+}
+
+.inputFoto{
+  display: none;
 }

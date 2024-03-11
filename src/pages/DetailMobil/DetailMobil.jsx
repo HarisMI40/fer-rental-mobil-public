@@ -42,9 +42,12 @@ const DetailMobil = () => {
         }
       );
 
-      localStorage.setItem("idOrder", response.data.id);
+      localStorage.setItem("dataOrder", JSON.stringify({
+        "idOrder" : response.data.id,
+        "waktu_dibuat" : new Date()
+      }));
+
       alert("Berhasil Order Mobil");
-      console.log(response);
     } catch (error) {
       console.log(error);
     } finally {
@@ -53,6 +56,9 @@ const DetailMobil = () => {
   }
 
   function handleClick() {
+
+    if(startDate == null || endDate == null) alert("Harap Isi Lama Sewa Mobil Sebelum Lanjut Ke Pembayaran !")
+
     const formData = {
       start_rent_at: formatDate(startDate),
       finish_rent_at: formatDate(endDate),
