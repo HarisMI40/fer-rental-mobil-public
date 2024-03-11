@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import style from "./Sidebar.module.css";
 import axios from "axios";
 import dataSelisihWaktu from "../../../../../../../helpers/selisihWaktuNantiDanSekarang";
+import { useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
   const isKonfirmasiPembayaran = localStorage.getItem("waktu_konfirmasi_pembayaran");
@@ -11,13 +12,17 @@ const Sidebar = () => {
     localStorage.setItem("waktu_konfirmasi_pembayaran", new Date());
     setClickedKonfirmasiPembayaran(true)
   }
+
+  const handleCancelPembayaran = () => {
+    setClickedKonfirmasiPembayaran(false)
+  }
   return (
     <div className={`${style.container} border p-4 align-self-start`}>
       <div>
 
       {
       isClickedKonfirmasiPembayaran 
-        ? <KonfirmasiPembayaranSection /> 
+        ? <KonfirmasiPembayaranSection handleCancelPembayaran={handleCancelPembayaran}/> 
         : (
             <>
               <p>Klik konfirmasi pembayaran untuk mempercepat proses pengecekan</p>
@@ -37,10 +42,11 @@ const Sidebar = () => {
   );
 };
 
-const KonfirmasiPembayaranSection = () => {
+const KonfirmasiPembayaranSection = ({handleCancelPembayaran}) => {
   const [imageUpload, setImageUpload] = useState();
   const [imagePreview, setImagePreview] = useState();
   const [waktu, setWaktu] = useState({menit : 0, detik : 0})
+  const navigate = useNavigate();
 
   const inputFotoRef = useRef(null);
 
@@ -55,17 +61,26 @@ const KonfirmasiPembayaranSection = () => {
   }
 
   function handleUpload() {
-    const response = axios.post(
-      `https://api-car-rental.binaracademy.org/customer/order/${idOrder}/slip`,
-      {
-        slip: imageUpload,
-      }
-    );
+    // const response = axios.post(
+    //   `https://api-car-rental.binaracademy.org/customer/order/${idOrder}/slip`,
+    //   {
+    //     slip: imageUpload,
+    //   }
+    // );
+
+    navigate("/tiket")
+  }
+
+  
+  function searchFotoHandler(){
+    inputFotoRef.current.click()
   }
 
   useEffect(() => {
-   
-    setInterval(() => {
+    
+    const countDown = setInterval(countDownProses, 1000);
+
+    function countDownProses() {
       const waktu_konfirmasi_pembayaran = localStorage.getItem("waktu_konfirmasi_pembayaran")
 
       const createdAt = new Date(waktu_konfirmasi_pembayaran);
@@ -75,12 +90,16 @@ const KonfirmasiPembayaranSection = () => {
       const currentTime = new Date();
 
       const { menit, detik} = dataSelisihWaktu(sepuluh_menit_setelah_konfirmasi_pembayaran, currentTime);
+
+      if(menit < 0){
+        localStorage.removeItem('waktu_konfirmasi_pembayaran');
+        clearInterval(countDown);
+        handleCancelPembayaran();
+        return 
+      }
       
       setWaktu({menit, detik});
-    }, 1000);
-
-
-  
+    }
   }, [])
   
   return (
@@ -108,7 +127,7 @@ const KonfirmasiPembayaranSection = () => {
 
       <div
         className={`${style.upload} my-4`}
-        onClick={() => inputFotoRef.current.click()}
+        onClick={searchFotoHandler}
       >
         <img src={imagePreview} width="80%" />
       </div>
@@ -121,24 +140,13 @@ const KonfirmasiPembayaranSection = () => {
         onChange={handleChangeImage}
       />
 
-<div className="d-grid gap-2 mt-4">
+      <div className="d-grid gap-2 mt-4">
         <button
-          // to={"/tiket"}
           className={`btn btn-success ${style.button}`}
           type="button"
-          onClick={handleUpload}
+          onClick={imagePreview ? handleUpload : searchFotoHandler}
         >
-          Upload
-          {/* 
-          pertama
-           Konfirmasi Pembayaran 
-
-           Jika sudah klik Pembayaran
-            Upload
-
-          Jika sudah klik upload
-            Konfirmasi yang mengarah ke step 3
-          */}
+          {imagePreview ? "Konfirmasi Pembayaran" : "Upload"}
         </button>
       </div>
     </>
