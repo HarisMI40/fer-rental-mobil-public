@@ -2,9 +2,13 @@ import React from "react";
 import style from "./Header.module.css";
 import fi_arrow_left from "../../../../assets/icon_card/fi_arrow_left.svg";
 import Fi_check_white from "../../../../assets/fi_check_white.jsx";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { updateCompleted, updateStep } from "../../../../../features/stepPembayaran/stepPembayaranSlice.js";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { data, completed, step, metode_pembayaran } = useSelector(
     (state) => state.stepPembayaran
   );
@@ -13,13 +17,22 @@ const Header = () => {
   if (step == 2) {
     currentPath = (
       <>
-        <img src={fi_arrow_left} /> Pembayaran{" "}
+       <div style={{cursor : "pointer"}} onClick={() => {
+        dispatch(updateStep(1));
+        dispatch(updateCompleted(0));
+       }}> <img src={fi_arrow_left} /> Pembayaran{" "}</div>
       </>
     );
   } else if (step == 3) {
     currentPath = (
       <>
-        <img src={fi_arrow_left} /> {metode_pembayaran} Transfer
+      <div style={{cursor : "pointer"}} onClick={() => {
+        dispatch(updateStep(2));
+        dispatch(updateCompleted(1));
+        navigate("/pembayaran");
+       }}>
+          <img src={fi_arrow_left} /> {metode_pembayaran.bank} Transfer
+        </div>
       </>
     );
   }
