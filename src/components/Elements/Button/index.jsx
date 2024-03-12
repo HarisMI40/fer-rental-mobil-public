@@ -1,12 +1,19 @@
+import Button from "react-bootstrap/Button";
+
 const ButtonAuth = (props) => {
-  const { children, classname } = props;
+  const { children, classname, onClick = () => {}, type = "button" } = props;
   return (
-    <button
-      className={`h-10 px-6 font-semibold ${classname} text-white`}
-      tpye="submit"
-    >
-      {children}
-    </button>
+    <div className="d-grid gap-2">
+      <Button
+        className={` ${classname}`}
+        type={type}
+        variant="primary"
+        size="sm"
+        onClick={() => onClick()}
+      >
+        {children}
+      </Button>
+    </div>
   );
 };
 
