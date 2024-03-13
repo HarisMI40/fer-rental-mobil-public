@@ -1,11 +1,10 @@
 import style from "./DataTransfer.module.css";
 import { Tab, Tabs } from "react-bootstrap";
 import { useSelector } from "react-redux";
+import HitungMundur from "../HitungMundur/HitungMundur";
 
 const DataTransfer = () => {
   const bank = useSelector((state) => state.stepPembayaran.metode_pembayaran);
-
-  console.log(bank);
 
   return (
     <div className={`${style.containerDataTransfer} d-flex flex-column gap-3`}>
@@ -14,10 +13,7 @@ const DataTransfer = () => {
           <h6>Selesaikan Pembayaran Sebelum</h6>
           <p className="text-muted">Rabu, 19 Mei 2022 jam 13.00 WIB</p>
         </div>
-        <div className={`${style.boxs} d-flex justify-content-betwen gap-2`}>
-          <div className="box">23</div> :<div className="box">55</div> :{" "}
-          <div className="box">09</div>
-        </div>
+        <HitungMundur/>
       </div>
 
       <div className="border px-4 py-4">

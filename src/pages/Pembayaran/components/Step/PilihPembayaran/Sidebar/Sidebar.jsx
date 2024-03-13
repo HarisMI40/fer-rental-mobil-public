@@ -10,7 +10,7 @@ const Sidebar = () => {
   const [dataOrder, setDataOrder] = useState({});
   useEffect(() => {
     async function getData() {
-      const idOrder = localStorage.getItem("idOrder");
+      const {idOrder} = JSON.parse(localStorage.getItem("dataOrder"));
 
       const response = await axios.get(
         `https://api-car-rental.binaracademy.org/customer/order/${idOrder}`,

@@ -17,7 +17,7 @@ const Button = (props) => {
         dispatch(updateStep(2));
         dispatch(updateCompleted(1));
       }}
-      disabled={metode_pembayaran == ""}
+      disabled={metode_pembayaran.bank == ""}
     >
       Bayar
     </button>
