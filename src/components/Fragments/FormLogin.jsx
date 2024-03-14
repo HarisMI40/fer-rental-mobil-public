@@ -1,9 +1,11 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import ButtonAuth from "../Elements/Button";
 import InputForm from "../Elements/Input";
 import { login } from "../../services/auth.service";
 
 const FormLogin = () => {
+  const [loginFailed, setLoginFailed] = useState("");
+
   const handleLogin = (event) => {
     event.preventDefault();
     // localStorage.setItem("email", event.target.email.value);
@@ -13,7 +15,14 @@ const FormLogin = () => {
       username: event.target.username.value,
       password: event.target.password.value,
     };
-    login(data);
+    login(data, (status, res) => {
+      if (status) {
+        localStorage.setItem("token", res);
+        window.location.href = "/";
+      } else {
+        setLoginFailed(res.response.data);
+      }
+    });
   };
 
   const usernameRef = useRef(null);
@@ -39,6 +48,9 @@ const FormLogin = () => {
       />
 
       <ButtonAuth type="submit">Sign In</ButtonAuth>
+      {loginFailed && (
+        <p className="text-danger text-center mt-3">{loginFailed}</p>
+      )}
     </form>
   );
 };
