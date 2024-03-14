@@ -1,3 +1,5 @@
+import style from "./AuthLayouts.module.css";
+
 const AuthLayout = (props) => {
   const { children, title } = props;
   return (
@@ -8,7 +10,10 @@ const AuthLayout = (props) => {
     <div className="container-fluid">
       <div className="row">
         <div className="col-6">
-          <div className="d-flex justify-content-center align-items-center">
+          <div
+            className="d-flex justify-content-center align-items-center"
+            // className={style.logintop}
+          >
             <div className="">
               <h1 className="mb-4">{title}</h1>
               {children}
