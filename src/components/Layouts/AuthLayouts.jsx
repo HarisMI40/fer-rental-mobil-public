@@ -11,8 +11,7 @@ const AuthLayout = (props) => {
       <div className="row">
         <div className="col-6">
           <div
-            className="d-flex justify-content-center align-items-center"
-            // className={style.logintop}
+            className={`${style.logintop} d-flex justify-content-center align-items-center`}
           >
             <div className="">
               <h1 className="mb-4">{title}</h1>
