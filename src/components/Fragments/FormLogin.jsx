@@ -1,14 +1,29 @@
+import { useEffect, useRef } from "react";
 import ButtonAuth from "../Elements/Button";
 import InputForm from "../Elements/Input";
 
 const FormLogin = () => {
+  const handleLogin = (event) => {
+    event.preventDefault();
+    localStorage.setItem("email", event.target.email.value);
+    localStorage.setItem("password", event.target.password.value);
+    window.location.href = "/";
+  };
+
+  const emailRef = useRef(null);
+
+  useEffect(() => {
+    emailRef.current.focus();
+  }, []);
+
   return (
-    <form action="">
+    <form onSubmit={handleLogin}>
       <InputForm
         label="Email"
         type="email"
         placeholder="Contoh:johndee@gmail.com"
         name="email"
+        ref={emailRef}
       />
       <InputForm
         label="Password"
@@ -17,7 +32,7 @@ const FormLogin = () => {
         name="password"
       />
 
-      <ButtonAuth classname="bg-blue-900 w-full">Sign In</ButtonAuth>
+      <ButtonAuth type="submit">Sign In</ButtonAuth>
     </form>
   );
 };
