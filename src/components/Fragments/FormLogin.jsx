@@ -34,7 +34,7 @@ const FormLogin = () => {
   return (
     <form onSubmit={handleLogin}>
       <InputForm
-        label="Username"
+        label="Email"
         type="text"
         placeholder="Contoh:johndoe@gmail.com"
         name="username"

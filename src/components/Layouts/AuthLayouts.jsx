@@ -8,7 +8,7 @@ const AuthLayout = (props) => {
     <div className="container-fluid">
       <div className="row">
         <div className="col-6">
-          <div className="align-items-center mx-auto">
+          <div className="d-flex justify-content-center align-items-center">
             <div className="">
               <h1 className="mb-4">{title}</h1>
               {children}
