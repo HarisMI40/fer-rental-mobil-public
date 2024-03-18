@@ -12,7 +12,7 @@ const FormLogin = () => {
     // localStorage.setItem("password", event.target.password.value);
     // window.location.href = "/";
     const data = {
-      username: event.target.username.value,
+      email: event.target.email.value,
       password: event.target.password.value,
     };
     login(data, (status, res) => {
@@ -37,7 +37,7 @@ const FormLogin = () => {
         label="Email"
         type="text"
         placeholder="Contoh:johndoe@gmail.com"
-        name="username"
+        name="email"
         ref={usernameRef}
       />
       <InputForm
