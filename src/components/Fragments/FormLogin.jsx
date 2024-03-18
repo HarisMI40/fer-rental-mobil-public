@@ -21,6 +21,7 @@ const FormLogin = () => {
         window.location.href = "/";
       } else {
         setLoginFailed(res.response.data);
+        // mau narik api, tapi ga ada message nya di api binar
       }
     });
   };
@@ -49,7 +50,10 @@ const FormLogin = () => {
 
       <ButtonAuth type="submit">Sign In</ButtonAuth>
       {loginFailed && (
-        <p className="text-danger text-center mt-3">{loginFailed}</p>
+        // <p className="text-danger text-center mt-3">{loginFailed}</p>
+        <p className="text-danger text-center mt-3">
+          email atau password salah
+        </p>
       )}
     </form>
   );
