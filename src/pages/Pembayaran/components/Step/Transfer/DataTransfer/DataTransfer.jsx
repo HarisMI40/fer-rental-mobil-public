@@ -2,6 +2,7 @@ import style from "./DataTransfer.module.css";
 import { Tab, Tabs } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import HitungMundur from "../HitungMundur/HitungMundur";
+import CopyToClipboard from "react-copy-to-clipboard";
 
 const DataTransfer = () => {
   const bank = useSelector((state) => state.stepPembayaran.metode_pembayaran);
@@ -32,14 +33,22 @@ const DataTransfer = () => {
             <label className="mb-2">Nomor Rekening</label>
             <div className="border p-2 d-flex justify-content-between align-items-center">
               <div className="text-muted">{bank.no_rek}</div>
-              <div className="border p-1">copy</div>
+              <div className="border p-1">
+              <CopyToClipboard text={bank.no_rek} onCopy={() => alert("Berhasil Menyalin Nomor Rekening")}>
+                <button className="btn">copy</button>
+              </CopyToClipboard>  
+              </div>
             </div>
           </div>
           <div className="mt-3">
             <label className="mb-2">Total Bayar</label>
             <div className="border p-2 d-flex justify-content-between align-items-center">
               <div className="fw-bold">Rp. 3.500.000</div>
-              <div className="border p-1">copy</div>
+              <div className="border p-1">
+                <CopyToClipboard text={"3.500.000"} onCopy={() => alert("Berhasil Menyalin Total Harga")}>
+                  <button className="btn">copy</button>
+                </CopyToClipboard>  
+              </div>
             </div>
           </div>
         </div>
