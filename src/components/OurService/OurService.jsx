@@ -6,21 +6,21 @@ import iconList from "../..//assets/icon_list.svg"
 
 const OurService = () => {
     return (
-    <>
+    <section>
         <Row>
-            <Col>
+            <Col md={6}>
             <div className={style.ourServiceImage}>
                 <img src={imgGirl} />
             </div>
             </Col>
 
-            <Col>
+            <Col md={6}>
             <div className={style.ourServiceDescription}>
-                <div className={style.title}>
+                <h1 className={style.title}>
                 Best Car Rental for any kind of trip in (Lokasimu)!
-                </div>
+                </h1>
                 <div className={style.description}>
-                Sewa mobil di (Lokasimu) bersama Binar Car Rental jaminan harga lebih murah dibandingkan yang lain, kondisi mobil baru, serta kualitas pelayanan terbaik untuk perjalanan wisata, bisnis, wedding, meeting, dll.
+                <p>Sewa mobil di (Lokasimu) bersama Binar Car Rental jaminan harga lebih murah dibandingkan yang lain, kondisi mobil baru, serta kualitas pelayanan terbaik untuk perjalanan wisata, bisnis, wedding, meeting, dll.</p>
                 <ul className={style.list}>
                     <li>
                     <img src={iconList} /> 
@@ -53,7 +53,7 @@ const OurService = () => {
             </div>
             </Col>
         </Row>
-    </>
+    </section>
     );
 };
 

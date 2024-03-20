@@ -25,8 +25,8 @@ function App() {
       </Container>
 
       <div>
-      <div className="title text-center">Testimonial</div>
-      <div className="subtitle mt-3 text-center">Berbagai review positif dari para pelanggan kami</div>
+      <h1 className="title text-center">Testimonial</h1>
+      <p className="subtitle text-center">Berbagai review positif dari para pelanggan kami</p>
         <Carousel />
       </div>
 

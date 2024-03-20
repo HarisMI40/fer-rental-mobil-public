@@ -10,12 +10,12 @@ const WhyUs = () => {
     <div className={style.containerWhyUs}>
         <Row>
             <Col>
-                <div className={style.title}>
+                <h1 className={style.title}>
                     Why Us?
-                </div>
-                <div className={style.subtitle}>
+                </h1>
+                <h2 className={style.subtitle}>
                     Mengapa harus pilih Binar Car Rental?
-                </div>
+                </h2>
             </Col>
         </Row>
 

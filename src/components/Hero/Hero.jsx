@@ -7,15 +7,15 @@ const Hero = ({ isButtonActive = true }) => {
   return (
     <div className={style.containerHero}>
       <div className={style.containerDisplay}>
-        <div className={style.textHero}>
+        <h1 className={style.textHero}>
           Sewa & Rental Mobil Terbaik di kawasan (Lokasimu)
-        </div>
+        </h1>
 
-        <div className={style.textParagraph}>
+        <p className={style.textParagraph}>
           Selamat datang di Binar Car Rental. Kami menyediakan mobil kualitas
           terbaik dengan harga terjangkau. Selalu siap melayani kebutuhanmu
           untuk sewa mobil selama 24 jam.
-        </div>
+        </p>
         {isButtonActive && (
           <div className="mt-4">
             <Link to={`cari-mobil`} className={style.buttonAction}>

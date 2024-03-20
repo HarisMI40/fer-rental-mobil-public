@@ -10,6 +10,7 @@ import icon_twitter from "./../../assets/icon_footer/icon_twitter.svg";
 
 const Footer = () => {
   return (
+    <footer>
     <Row>
       <Col md={3} className="mb-4 my-md-0">
         <div className={`subtitle ${style.subtitle}`}>
@@ -53,6 +54,7 @@ const Footer = () => {
         </div>
       </Col>
     </Row>
+    </footer>
   );
 };
 

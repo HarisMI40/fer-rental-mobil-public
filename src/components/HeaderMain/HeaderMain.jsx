@@ -5,10 +5,10 @@ import style from "./HeaderMain.module.css";
 
 const HeaderMain = ({children}) => {
     return (
-        <div className={style.main}>
+        <header className={style.main}>
             <Navbar />
             {children}
-        </div>
+        </header>
     )
 };
 

@@ -14,7 +14,7 @@ const handleLogout = () => {
 
 const Navbar = () => {
   return (
-    <div className={style.navbar}>
+    <nav className={style.navbar}>
       <Brand />
       <div className={style.collapse}>
         <div className={style.item}>
@@ -44,7 +44,7 @@ const Navbar = () => {
       <div className={style.toggle}>
         <OffcanvasIndex />
       </div>
-    </div>
+    </nav>
   );
 };
 

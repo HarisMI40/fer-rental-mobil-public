@@ -6,7 +6,7 @@ const CarouselItem = ({image}) => {
     const star = Array.from(Array(5).keys());
     
   return (
-    <div style={{height : "200px", margin : "50px", borderRadius:"8px", background:"#F1F3FF"}} className="shadow-sm p-5">
+    <div style={{height : "200px", overflow:"hidden", margin : "50px", borderRadius:"8px", background:"#F1F3FF"}} className="shadow-sm p-5">
         <Container>
             <Row>
                 <Col md={2}>
@@ -18,9 +18,9 @@ const CarouselItem = ({image}) => {
                             <img src={starImage} width="16px" className="mx-1" key={star} />
                         ))}
                     </div>
-                    <div className="fw-bold my-2">“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod”</div>
+                    <div className="fw-bold my-2">“Lorem ipsum dolor sit amet, <p>consectetur adipiscing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod”</p></div>
 
-                    <div className="">John Dee 32, Bromo</div>
+                    <h1 className="">John Dee 32, Bromo</h1>
                 </Col>
             </Row>
         </Container>
