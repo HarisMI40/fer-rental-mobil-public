@@ -7,7 +7,7 @@ const LoginPage = () => {
   return (
     <AuthLayout title="Welcome Back!">
       <FormLogin />
-      <p className="text-sm mt-5 text-center">
+      <p className="text-sm mt-4 text-center">
         Don't have an account?{" "}
         <Link to="/register" className="font-bold text-blue-600">
           Sign Up for free
