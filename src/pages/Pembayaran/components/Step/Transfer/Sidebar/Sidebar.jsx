@@ -54,20 +54,27 @@ const KonfirmasiPembayaranSection = ({handleCancelPembayaran}) => {
 
   function handleChangeImage(e) {
     const fileImage = e.target.files[0];
-
     setImageUpload(fileImage);
     setImagePreview(URL.createObjectURL(fileImage));
     e.target.value = null;
   }
 
-  function handleUpload() {
-    // const response = axios.post(
-    //   `https://api-car-rental.binaracademy.org/customer/order/${idOrder}/slip`,
-    //   {
-    //     slip: imageUpload,
-    //   }
-    // );
+  async function handleUpload() {
 
+    const formData = new FormData();
+
+    formData.append("slip", imageUpload)
+    const response = await axios.put(
+      `https://api-car-rental.binaracademy.org/customer/order/${idOrder}/slip`, formData,
+      {
+        headers: {
+          access_token:
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGJjci5pbyIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTcxMDA1NTgwNX0.qdkF6BrmMQ8N9pYuqAtjT-2vB7yyVkpDBP5EqHg0-h8"
+          },
+      }
+    );
+    
+    alert("Berhasil Upload Bukti Pembayaran")
     navigate("/tiket")
   }
 
