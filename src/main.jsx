@@ -14,6 +14,7 @@ import RegisterPage from "./pages/register";
 import Pembayaran from "./pages/Pembayaran/Pembayaran";
 import Tiket from "./pages/Tiket/Tiket";
 import "./index.css";
+import apiService from "./services/api.service";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,8 @@ const router = createBrowserRouter([
     element: <Tiket />,
   },
 ]);
+
+apiService.init();
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>

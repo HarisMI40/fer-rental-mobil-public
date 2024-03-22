@@ -23,6 +23,8 @@
     font-style: normal;
     font-weight: 400;
     line-height: 20px;
+    display: flex;
+    align-items: center;
 }
 
 .item ul li a{

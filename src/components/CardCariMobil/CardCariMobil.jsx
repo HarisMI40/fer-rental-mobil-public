@@ -30,7 +30,7 @@ const CardCariMobil = ({
     let parameterData = Object.fromEntries([...searchParams]);
     const getData = async () => {
       const res = await axios.get(
-        "https://api-car-rental.binaracademy.org/customer/v2/car",
+        "customer/v2/car",
         { params: parameterData }
       );
       setCar(res.data);
@@ -44,7 +44,7 @@ const CardCariMobil = ({
     setSearchParams(formData);
 
     axios
-      .get("https://api-car-rental.binaracademy.org/customer/v2/car", {
+      .get("customer/v2/car", {
         params: formData,
       })
       .then((res) => setCar(res.data))
@@ -155,6 +155,7 @@ const CardCariMobil = ({
             ) : (
               <Button
                 variant="outline-info"
+                type="submit"
                 onFocus={onActiveHandler}
                 onBlur={onBlurHandler}
                 disabled={disable}

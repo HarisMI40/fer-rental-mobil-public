@@ -5,8 +5,8 @@ const Faq = () => {
   return (
     <Row>
         <Col md={6}>
-            <div className="title">Frequently Asked Question</div>
-            <div className="my-4 subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit</div>
+            <h1 className="title">Frequently Asked Question</h1>
+            <p className="my-4 subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
         </Col>
 
         <Col md={6}>

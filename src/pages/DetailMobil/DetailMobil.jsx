@@ -31,16 +31,7 @@ const DetailMobil = () => {
   async function saveOrder(data) {
     setLoading({ orderMobil: true });
     try {
-      const response = await axios.post(
-        "https://api-car-rental.binaracademy.org/customer/order",
-        data,
-        {
-          headers: {
-            access_token:
-              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImN1c3RvbWVyQGJjci5pbyIsInJvbGUiOiJDdXN0b21lciIsImlhdCI6MTcwOTg2MzY1OX0.r4s8OrNGy96LM4xpP4QGEiqZspBcby8jRdmjBglO518",
-          },
-        }
-      );
+      const response = await axios.post("customer/order", data);
 
       localStorage.setItem("dataOrder", JSON.stringify({
         "idOrder" : response.data.id,
@@ -48,6 +39,7 @@ const DetailMobil = () => {
       }));
 
       alert("Berhasil Order Mobil");
+      navigate("/Pembayaran"); // Use navigate directly in handleClick function
     } catch (error) {
       console.log(error);
     } finally {
@@ -56,7 +48,7 @@ const DetailMobil = () => {
   }
 
   function handleClick() {
-
+   
     if(startDate == null || endDate == null) alert("Harap Isi Lama Sewa Mobil Sebelum Lanjut Ke Pembayaran !")
 
     const formData = {
@@ -66,7 +58,6 @@ const DetailMobil = () => {
     };
 
     saveOrder(formData);
-    navigate("/Pembayaran"); // Use navigate directly in handleClick function
   }
 
   useEffect(() => {
@@ -149,7 +140,7 @@ const DetailMobil = () => {
                     />
                   </div>
                   <div className="mb-3">
-                    Harga: <span className="fw-bold">Rp. {mobil.price}</span>
+                    Harga: <span className="fw-bold">Rp. {mobil.price?.toLocaleString('id-ID')}</span>
                   </div>
                   <div>
                     <div className="d-grid gap-2">

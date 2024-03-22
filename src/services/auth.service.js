@@ -4,10 +4,9 @@ export const login = (data, callback) => {
   axios
     .post("https://api-car-rental.binaracademy.org/customer/auth/login", data)
     .then((res) => {
-      console.log(res);
-      callback(true, res.data.token);
+      callback(res.status, res.data);
     })
     .catch((error) => {
-      callback(false, error);
+      callback(error.response.status, error.response.data);
     });
 };
