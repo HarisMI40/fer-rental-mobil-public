@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import apiService from "../../src/services/api.service";
 
 const auth = createSlice({
     name : "auth_public",
@@ -12,6 +13,7 @@ const auth = createSlice({
             state.email = action.payload.email;
             state.role = action.payload.role;
             state.access_token = action.payload.access_token;
+            apiService.setHeader(action.payload.access_token)
         },
 
         removeDataAuth : (state) => {
@@ -19,6 +21,7 @@ const auth = createSlice({
             // state.role = "";
             // state.access_token = "";
             localStorage.removeItem("token")
+            apiService.removeHeader();
         }
     }
 })
