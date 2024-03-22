@@ -13,7 +13,7 @@ const auth = createSlice({
             state.email = action.payload.email;
             state.role = action.payload.role;
             state.access_token = action.payload.access_token;
-            localStorage.setItem("token", res.access_token);
+            localStorage.setItem("token", action.payload.access_token);
             apiService.setHeader(action.payload.access_token);
         },
 
