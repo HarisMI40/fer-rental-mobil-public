@@ -15,9 +15,10 @@ const auth = createSlice({
         },
 
         removeDataAuth : (state) => {
-            state.email = "";
-            state.role = "";
-            state.access_token = "";
+            // state.email = "";
+            // state.role = "";
+            // state.access_token = "";
+            localStorage.removeItem("token")
         }
     }
 })
