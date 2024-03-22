@@ -25,7 +25,9 @@
 }
 
 .marginImage {
-  margin-top: 85px;
+  /* margin-top: 85px; */
+  /* width: 80%; */
+  height: 162px;
 }
 
 /* .button_unduh:hover{
