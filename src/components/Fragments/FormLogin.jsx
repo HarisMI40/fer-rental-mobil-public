@@ -21,8 +21,6 @@ const FormLogin = () => {
     login(data, (status, res) => {
       if (status == 201) { // jika status created atau berhasil login
         dispatch(setDataAuth(res))
-        localStorage.setItem("token", res.access_token);
-        // window.location.href = "/";
         navigate("/")
       } else {
         setLoginFailed(res.message);
