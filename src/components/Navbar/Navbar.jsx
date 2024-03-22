@@ -1,18 +1,39 @@
 import React from "react";
 import style from "./Navbar.module.css";
 import OffcanvasIndex from "../Offcanvas/OffcanvasIndex";
-import { Container } from "react-bootstrap";
 import Brand from "../Brand/Brand";
 import Button from "react-bootstrap/Button";
+// import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { removeDataAuth } from "../../../features/auth/authSlice";
 
-const email = localStorage.getItem("email");
-const handleLogout = () => {
-  localStorage.removeItem("email");
-  localStorage.removeItem("password");
-  window.location.href = "/login";
-};
+
+
+
+
+
 
 const Navbar = () => {
+
+  // const {email} = useSelector(state => state.auth);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const token = localStorage.getItem("token");
+  // const isLogin = email !== "" && token;
+  const isLogin = token;
+
+
+  const toLogin = () => {
+    navigate("/register")
+  }
+
+  const handleLogout = () => {
+    dispatch(removeDataAuth())
+    window.location.href = "/login";
+  };
+
+
   return (
     <nav className={style.navbar}>
       <Brand />
@@ -32,10 +53,22 @@ const Navbar = () => {
               <a href="#faq">FAQ</a>
             </li>
             <li>
-              <p className="fw-bold">{email}</p>
-              <Button variant="danger" size="sm" onClick={handleLogout}>
-                Logout
-              </Button>
+              {
+                isLogin 
+                ? 
+                (
+                  <Button variant="danger" size="sm" onClick={handleLogout}>
+                    Logout
+                  </Button>
+                )
+                :
+                (
+                  <Button variant="success" size="sm" onClick={toLogin}>
+                    Register
+                  </Button>
+                )
+              }
+              
             </li>
           </ul>
         </div>
