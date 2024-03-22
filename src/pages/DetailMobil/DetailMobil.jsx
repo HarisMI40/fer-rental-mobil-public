@@ -149,7 +149,7 @@ const DetailMobil = () => {
                     />
                   </div>
                   <div className="mb-3">
-                    Harga: <span className="fw-bold">Rp. {mobil.price}</span>
+                    Harga: <span className="fw-bold">Rp. {mobil.price?.toLocaleString('id-ID')}</span>
                   </div>
                   <div>
                     <div className="d-grid gap-2">

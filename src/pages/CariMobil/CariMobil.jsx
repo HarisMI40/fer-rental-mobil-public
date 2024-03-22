@@ -57,7 +57,7 @@ const CariMobil = () => {
                 <Card.Body>
                   <Card.Title>{car.name}</Card.Title>
                   <Card.Subtitle className="my-2 text-muted">
-                    RP {car.price} / hari
+                    RP {car.price?.toLocaleString('id-ID')} / hari
                   </Card.Subtitle>
                   <Card.Text>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
