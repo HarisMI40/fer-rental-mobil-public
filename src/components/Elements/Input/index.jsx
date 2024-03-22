@@ -6,7 +6,7 @@ const InputForm = forwardRef((props, ref) => {
   const { label, name, type, placeholder } = props;
   return (
     <>
-      <div className="mb-3">
+      <div className="mb-1">
         <Label htmlFor={name}>{label}</Label>
       </div>
       <div>
