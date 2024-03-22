@@ -64,15 +64,7 @@ const KonfirmasiPembayaranSection = ({handleCancelPembayaran}) => {
     const formData = new FormData();
 
     formData.append("slip", imageUpload)
-    const response = await axios.put(
-      `https://api-car-rental.binaracademy.org/customer/order/${idOrder}/slip`, formData,
-      {
-        headers: {
-          access_token:
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGJjci5pbyIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTcxMDA1NTgwNX0.qdkF6BrmMQ8N9pYuqAtjT-2vB7yyVkpDBP5EqHg0-h8"
-          },
-      }
-    );
+    const response = await axios.put(`customer/order/${idOrder}/slip`, formData);
     
     alert("Berhasil Upload Bukti Pembayaran")
     navigate("/tiket")

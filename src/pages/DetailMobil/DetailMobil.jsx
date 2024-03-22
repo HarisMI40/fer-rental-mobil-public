@@ -31,16 +31,7 @@ const DetailMobil = () => {
   async function saveOrder(data) {
     setLoading({ orderMobil: true });
     try {
-      const response = await axios.post(
-        "https://api-car-rental.binaracademy.org/customer/order",
-        data,
-        {
-          headers: {
-            access_token:
-              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGJjci5pbyIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTcxMDA1NTgwNX0.qdkF6BrmMQ8N9pYuqAtjT-2vB7yyVkpDBP5EqHg0-h8",
-          },
-        }
-      );
+      const response = await axios.post("customer/order", data);
 
       localStorage.setItem("dataOrder", JSON.stringify({
         "idOrder" : response.data.id,
@@ -48,6 +39,7 @@ const DetailMobil = () => {
       }));
 
       alert("Berhasil Order Mobil");
+      navigate("/Pembayaran"); // Use navigate directly in handleClick function
     } catch (error) {
       console.log(error);
     } finally {
@@ -56,7 +48,7 @@ const DetailMobil = () => {
   }
 
   function handleClick() {
-
+   
     if(startDate == null || endDate == null) alert("Harap Isi Lama Sewa Mobil Sebelum Lanjut Ke Pembayaran !")
 
     const formData = {
@@ -66,7 +58,6 @@ const DetailMobil = () => {
     };
 
     saveOrder(formData);
-    navigate("/Pembayaran"); // Use navigate directly in handleClick function
   }
 
   useEffect(() => {
