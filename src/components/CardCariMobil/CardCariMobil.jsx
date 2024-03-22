@@ -155,6 +155,7 @@ const CardCariMobil = ({
             ) : (
               <Button
                 variant="outline-info"
+                type="submit"
                 onFocus={onActiveHandler}
                 onBlur={onBlurHandler}
                 disabled={disable}
