@@ -8,19 +8,17 @@ const FormLogin = () => {
 
   const handleLogin = (event) => {
     event.preventDefault();
-    // localStorage.setItem("email", event.target.email.value);
-    // localStorage.setItem("password", event.target.password.value);
-    // window.location.href = "/";
+
     const data = {
       email: event.target.email.value,
       password: event.target.password.value,
     };
     login(data, (status, res) => {
-      if (status) {
-        localStorage.setItem("token", res);
+      if (status == 201) { // jika status created atau berhasil login
+        localStorage.setItem("token", res.access_token);
         window.location.href = "/";
       } else {
-        setLoginFailed(res.response.data);
+        setLoginFailed(res.message);
         // mau narik api, tapi ga ada message nya di api binar
       }
     });
@@ -50,9 +48,11 @@ const FormLogin = () => {
 
       <ButtonAuth type="submit">Sign In</ButtonAuth>
       {loginFailed && (
-        // <p className="text-danger text-center mt-3">{loginFailed}</p>
+        // <p className="text-danger text-center mt-3">
+        //   email atau password salah
+        // </p>
         <p className="text-danger text-center mt-3">
-          email atau password salah
+          {loginFailed}
         </p>
       )}
     </form>
