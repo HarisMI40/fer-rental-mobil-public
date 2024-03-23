@@ -9,12 +9,14 @@ import Footer from "../../components/Footer/Footer";
 import icon_success from "../../assets/success.svg";
 import style from "./Tiket.module.css";
 import fi_download from "../../assets/fi_download.svg";
-import etiket from "../../assets/etiket/etiket.png";
+// import etiket from "../../assets/etiket/etiket.png";
 import {useDispatch} from "react-redux";
 import {
   updateCompleted,
   updateStep,
 } from "../../../features/stepPembayaran/stepPembayaranSlice";
+
+import PdfCreate from "../../components/PdfCreate/PdfCreate";
 
 const Tiket = () => {
   const [dataOrder, setDataOrder] = useState({});
@@ -42,7 +44,7 @@ const Tiket = () => {
   useEffect(() => {
     dispatch(updateStep(3));
     dispatch(updateCompleted(2));
-  }, []);
+  }, [dispatch]);
 
   return (
     <div>
@@ -64,10 +66,8 @@ const Tiket = () => {
         <div className="border w-50 p-4 shadow-sm rounded">
           <div className="d-flex justify-content-between align-items-start">
             <div>
-              <p className="fw-bold">Invoice{dataOrder?.Car?.price}</p>
-              <p className="text-muted fw-bold mt-2">
-                *no invoice {dataOrder.slip}
-              </p>
+              <p className="fw-bold">Invoice</p>
+              <p className="text-muted fw-bold mt-2">*no {dataOrder.id}</p>
             </div>
             <a
               className={`${style.button_unduh} btn btn-outline-primary d-flex align-items-center gap-2 fw-bold`}
@@ -82,14 +82,16 @@ const Tiket = () => {
               Unduh
             </a>
           </div>
+
           <div className={`${style.pdf_preview} mt-5  text-center `}>
+            <PdfCreate />
             {/* <img src={etiket} className={style.marginImage} /> */}
-            <img
+            {/* <img
               src={
                 "https://www.jurnal.id/wp-content/uploads/2021/09/contoh-nota-kosong-434x628.png"
               }
               className={style.marginImage}
-            />
+            /> */}
           </div>
         </div>
       </div>
