@@ -1,7 +1,7 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
-import {Container} from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import HeaderMain from "../../components/HeaderMain/HeaderMain";
 import Header from "../Pembayaran/components/Header/Header";
 import Footer from "../../components/Footer/Footer";
@@ -10,19 +10,20 @@ import icon_success from "../../assets/success.svg";
 import style from "./Tiket.module.css";
 import fi_download from "../../assets/fi_download.svg";
 // import etiket from "../../assets/etiket/etiket.png";
-import {useDispatch} from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   updateCompleted,
   updateStep,
 } from "../../../features/stepPembayaran/stepPembayaranSlice";
 
 import PdfCreate from "../../components/PdfCreate/PdfCreate";
+import { Helmet } from "react-helmet";
 
 const Tiket = () => {
   const [dataOrder, setDataOrder] = useState({});
   useEffect(() => {
     async function getData() {
-      const {idOrder} = JSON.parse(localStorage.getItem("dataOrder"));
+      const { idOrder } = JSON.parse(localStorage.getItem("dataOrder"));
       const response = await axios.get(
         `https://api-car-rental.binaracademy.org/customer/order/${idOrder}`,
         {
@@ -48,6 +49,10 @@ const Tiket = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>BCR - E-tiket transaksi</title>
+        <meta name="Binar Car Rental" content="e-tiket pembayaran" />
+      </Helmet>
       <HeaderMain>
         <Header />
       </HeaderMain>

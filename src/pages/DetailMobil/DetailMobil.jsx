@@ -14,6 +14,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import formatDate from "../../../helpers/formatDate";
 import { useSelector } from "react-redux";
+import { Helmet } from "react-helmet";
 
 const DetailMobil = () => {
   const [isLoading, setLoading] = useState({ orderMobil: false });
@@ -22,7 +23,7 @@ const DetailMobil = () => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const navigate = useNavigate();
-  const dataUser = useSelector(state => state.auth);
+  const dataUser = useSelector((state) => state.auth);
   const token = localStorage.getItem("token");
 
   const OnChange = (dates) => {
@@ -36,20 +37,24 @@ const DetailMobil = () => {
     try {
       const response = await axios.post("customer/order", data);
 
-      localStorage.setItem("dataOrder", JSON.stringify({
-        "idOrder" : response.data.id,
-        "waktu_dibuat" : new Date()
-      }));
-
+      localStorage.setItem(
+        "dataOrder",
+        JSON.stringify({
+          idOrder: response.data.id,
+          waktu_dibuat: new Date(),
+        })
+      );
 
       alert("Berhasil Order Mobil");
       navigate("/Pembayaran"); // Use navigate directly in handleClick function
     } catch (error) {
       console.log(error.response.status);
 
-      if(error.response.status == 401){
-        alert("anda harus login terlebih dahulu untuk melanjutkan pembayaran !");
-        navigate(`/login?current=detail-mobil/${mobil.id}`)
+      if (error.response.status == 401) {
+        alert(
+          "anda harus login terlebih dahulu untuk melanjutkan pembayaran !"
+        );
+        navigate(`/login?current=detail-mobil/${mobil.id}`);
         return;
       }
     } finally {
@@ -58,9 +63,8 @@ const DetailMobil = () => {
   }
 
   function handleClick() {
-
-
-    if(startDate == null || endDate == null) alert("Harap Isi Lama Sewa Mobil Sebelum Lanjut Ke Pembayaran !")
+    if (startDate == null || endDate == null)
+      alert("Harap Isi Lama Sewa Mobil Sebelum Lanjut Ke Pembayaran !");
 
     const formData = {
       start_rent_at: formatDate(startDate),
@@ -84,6 +88,10 @@ const DetailMobil = () => {
 
   return (
     <>
+      <Helmet>
+        <title>BCR - Detail Mobil</title>
+        <meta name="Binar Car Rental" content="Detail Mobil" />
+      </Helmet>
       <HeaderMain></HeaderMain>
       <Container className={style.containerCardCariMobil}>
         <CardCariMobil />
@@ -149,7 +157,10 @@ const DetailMobil = () => {
                     />
                   </div>
                   <div className="mb-3">
-                    Harga: <span className="fw-bold">Rp. {mobil.price?.toLocaleString('id-ID')}</span>
+                    Harga:{" "}
+                    <span className="fw-bold">
+                      Rp. {mobil.price?.toLocaleString("id-ID")}
+                    </span>
                   </div>
                   <div>
                     <div className="d-grid gap-2">
