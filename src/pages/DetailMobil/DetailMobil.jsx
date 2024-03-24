@@ -41,22 +41,23 @@ const DetailMobil = () => {
         "waktu_dibuat" : new Date()
       }));
 
+
       alert("Berhasil Order Mobil");
       navigate("/Pembayaran"); // Use navigate directly in handleClick function
     } catch (error) {
-      console.log(error);
+      console.log(error.response.status);
+
+      if(error.response.status == 401){
+        alert("anda harus login terlebih dahulu untuk melanjutkan pembayaran !");
+        navigate(`/login?current=detail-mobil/${mobil.id}`)
+        return;
+      }
     } finally {
       setLoading({ orderMobil: false });
     }
   }
 
   function handleClick() {
-
-
-   if(!token || dataUser.email == ""){
-     alert("anda harus login terlebih dahulu untuk melanjutkan pembayaran !");
-     navigate(`/login?current=detail-mobil/${mobil.id}`)
-   }
 
 
     if(startDate == null || endDate == null) alert("Harap Isi Lama Sewa Mobil Sebelum Lanjut Ke Pembayaran !")
