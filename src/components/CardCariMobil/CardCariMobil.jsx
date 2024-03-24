@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 const CardCariMobil = ({
   onActiveHandler = () => {},
@@ -15,6 +15,8 @@ const CardCariMobil = ({
     price: "",
     status: "",
   });
+
+  const navigate = useNavigate();
   const notDisable = disable == false;
 
   let [searchParams, setSearchParams] = useSearchParams();
@@ -37,18 +39,16 @@ const CardCariMobil = ({
     };
 
     getData();
-  }, []);
+  }, [searchParams]);
 
   const submitHandler = (e) => {
     e.preventDefault();
-    setSearchParams(formData);
 
-    axios
-      .get("customer/v2/car", {
-        params: formData,
-      })
-      .then((res) => setCar(res.data))
-      .finally(() => onBlurHandler());
+    const params = new URLSearchParams(formData);
+    const queryString = params.toString();
+
+    navigate(`/cari-mobil?${queryString}`);
+
   };
   return (
     <div

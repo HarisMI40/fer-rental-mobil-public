@@ -85,7 +85,7 @@ const DetailMobil = () => {
     <>
       <HeaderMain></HeaderMain>
       <Container className={style.containerCardCariMobil}>
-        <CardCariMobil disable={true} />
+        <CardCariMobil />
       </Container>
 
       <Container>
