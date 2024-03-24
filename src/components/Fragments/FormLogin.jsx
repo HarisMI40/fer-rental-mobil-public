@@ -4,12 +4,14 @@ import InputForm from "../Elements/Input";
 import { login } from "../../services/auth.service";
 import { useDispatch } from "react-redux";
 import { setDataAuth } from "../../../features/auth/authSlice";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const FormLogin = () => {
   const [loginFailed, setLoginFailed] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const param =  new URLSearchParams(window.location.search);
+  const current = param.get("current")
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -20,8 +22,18 @@ const FormLogin = () => {
     };
     login(data, (status, res) => {
       if (status == 201) { // jika status created atau berhasil login
+        
         dispatch(setDataAuth(res))
+
+        if(current){
+
+          navigate(`/${current}`)
+          return
+          
+        }
+        
         navigate("/")
+
       } else {
         setLoginFailed(res.message);
         // mau narik api, tapi ga ada message nya di api binar

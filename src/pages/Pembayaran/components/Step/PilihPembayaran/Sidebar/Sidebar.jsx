@@ -6,25 +6,22 @@ import Button from "./component/Button";
 import getNumberOfDays from "../../../../../../../helpers/getNumberOfDays";
 import axios from "axios";
 
+
 const Sidebar = () => {
   const [dataOrder, setDataOrder] = useState({});
+
+
   useEffect(() => {
     async function getData() {
       const {idOrder} = JSON.parse(localStorage.getItem("dataOrder"));
 
       const response = await axios.get(
-        `https://api-car-rental.binaracademy.org/customer/order/${idOrder}`,
-        {
-          headers: {
-            access_token:
-              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImN1c3RvbWVyQGJjci5pbyIsInJvbGUiOiJDdXN0b21lciIsImlhdCI6MTcwOTg2MzY1OX0.r4s8OrNGy96LM4xpP4QGEiqZspBcby8jRdmjBglO518",
-          },
-        }
+        `customer/order/${idOrder}`,
       );
 
       const data = response.data;
-
       setDataOrder(data);
+
     }
 
     getData();
@@ -34,6 +31,7 @@ const Sidebar = () => {
 
   return (
     <div className={`${style.sidebar} border p-4`}>
+      {/* <button onClick={() => console.log(orderDetail)}></button> */}
       <div>
         <h4>{dataOrder?.Car?.name}</h4>
         <div className="d-flex gap-3">
@@ -45,7 +43,7 @@ const Sidebar = () => {
       <div className="mt-5 border-bottom">
         <div className="d-flex justify-content-between">
           <div>Total</div>
-          <div>Rp. {dataOrder?.total_price}</div>
+          <div>Rp. {dataOrder?.total_price?.toLocaleString('id-ID')}</div>
         </div>
 
         <div className="mt-4">
@@ -56,7 +54,7 @@ const Sidebar = () => {
                 <li>
                   <div>Sewa Mobil</div>
                   <div className="text-muted fw-bold">
-                    Rp.{dataOrder?.Car?.price} x{" "}
+                    Rp.{dataOrder?.Car?.price?.toLocaleString('id-ID')} x{" "}
                     {getNumberOfDays("2024-01-01", "2024-01-02")} Hari
                   </div>
                 </li>
@@ -65,8 +63,8 @@ const Sidebar = () => {
             <div className="">
               <div className="">
                 Rp{" "}
-                {dataOrder?.Car?.price *
-                  getNumberOfDays("2024-01-01", "2024-01-02")}
+                {(dataOrder?.Car?.price *
+                  getNumberOfDays("2024-01-01", "2024-01-02")).toLocaleString('id-ID')}
               </div>
             </div>
           </div>
@@ -102,7 +100,7 @@ const Sidebar = () => {
       </div>
       <div className="d-flex justify-content-between my-4">
         <div>Total</div>
-        <div className="fw-bold">RP.{dataOrder?.total_price}</div>
+        <div className="fw-bold">RP.{dataOrder?.total_price?.toLocaleString('id-ID')}</div>
       </div>
 
       <div className="d-grid gap-2">
