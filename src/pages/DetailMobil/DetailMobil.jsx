@@ -13,6 +13,7 @@ import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import formatDate from "../../../helpers/formatDate";
+import { useSelector } from "react-redux";
 
 const DetailMobil = () => {
   const [isLoading, setLoading] = useState({ orderMobil: false });
@@ -21,6 +22,8 @@ const DetailMobil = () => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const navigate = useNavigate();
+  const dataUser = useSelector(state => state.auth);
+  const token = localStorage.getItem("token");
 
   const OnChange = (dates) => {
     const [start, end] = dates;
@@ -48,7 +51,14 @@ const DetailMobil = () => {
   }
 
   function handleClick() {
-   
+
+
+   if(!token || dataUser.email == ""){
+     alert("anda harus login terlebih dahulu untuk melanjutkan pembayaran !");
+     navigate(`/login?current=detail-mobil/${mobil.id}`)
+   }
+
+
     if(startDate == null || endDate == null) alert("Harap Isi Lama Sewa Mobil Sebelum Lanjut Ke Pembayaran !")
 
     const formData = {
@@ -56,7 +66,6 @@ const DetailMobil = () => {
       finish_rent_at: formatDate(endDate),
       car_id: mobil.id,
     };
-
     saveOrder(formData);
   }
 
@@ -66,7 +75,6 @@ const DetailMobil = () => {
         `https://api-car-rental.binaracademy.org/customer/car/${idCar}`
       );
       const data = await res.json();
-
       setMobil(data);
     };
 
