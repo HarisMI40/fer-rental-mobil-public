@@ -7,6 +7,7 @@ import CardDetailPesanan from "./components/CardDetailPesanan/CardDetailPesanan"
 import PilihPembayaran from "./components/Step/PilihPembayaran/Index";
 import Transfer from "./components/Step/Transfer/Transfer";
 import { useSelector } from "react-redux";
+import { Helmet } from "react-helmet";
 
 const Pembayaran = () => {
   const step = useSelector((state) => state.stepPembayaran.step);
@@ -20,6 +21,10 @@ const Pembayaran = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>BCR - Pembayaran</title>
+        <meta name="Binar Car Rental" content="Pembayaran" />
+      </Helmet>
       <HeaderMain>
         <Header />
       </HeaderMain>
