@@ -53,11 +53,11 @@ const CardCariMobil = ({
   return (
     <div
       className="shadow p-4 bg-body-tertiary rounded"
-      style={{ position: "relative", zIndex: "9999" }}
+      style={{ position: "relative", zIndex: "99" }}
     >
       <Form onSubmit={submitHandler}>
         <Row className="mb-3">
-          <Form.Group as={Col} xs={2} controlId="formGridEmail">
+          <Form.Group as={Col} md={2} controlId="formGridEmail">
             <Form.Label>Nama Mobil</Form.Label>
             <Form.Control
               size="md"
@@ -73,7 +73,7 @@ const CardCariMobil = ({
             />
           </Form.Group>
 
-          <Form.Group as={Col} xs={3} controlId="formGridEmail">
+          <Form.Group as={Col} md={3} controlId="formGridEmail">
             <Form.Label>Kategori</Form.Label>
             <Form.Select
               size="md"
@@ -96,7 +96,7 @@ const CardCariMobil = ({
             </Form.Select>
           </Form.Group>
 
-          <Form.Group as={Col} xs={3} controlId="formGridEmail">
+          <Form.Group as={Col} md={3} controlId="formGridEmail">
             <Form.Label>Harga</Form.Label>
             <Form.Select
               size="md"
@@ -119,7 +119,7 @@ const CardCariMobil = ({
             </Form.Select>
           </Form.Group>
 
-          <Form.Group as={Col} xs={2} controlId="formGridEmail">
+          <Form.Group as={Col} md={2} controlId="formGridEmail">
             <Form.Label>Status</Form.Label>
             <Form.Select
               size="md"
@@ -140,7 +140,7 @@ const CardCariMobil = ({
             </Form.Select>
           </Form.Group>
 
-          <Col className="d-flex align-items-end" xs={2}>
+          <Col className="d-flex align-items-end mt-5 mt-md-0" md={2}>
             {isEmptyParam() ? (
               <Button
                 size="md"
