@@ -10,8 +10,8 @@ const FormLogin = () => {
   const [loginFailed, setLoginFailed] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const param =  new URLSearchParams(window.location.search);
-  const current = param.get("current")
+  const param = new URLSearchParams(window.location.search);
+  const current = param.get("current");
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -21,19 +21,17 @@ const FormLogin = () => {
       password: event.target.password.value,
     };
     login(data, (status, res) => {
-      if (status == 201) { // jika status created atau berhasil login
-        
-        dispatch(setDataAuth(res))
+      if (status == 201) {
+        // jika status created atau berhasil login
 
-        if(current){
+        dispatch(setDataAuth(res));
 
-          navigate(`/${current}`)
-          return
-          
+        if (current) {
+          navigate(`/${current}`);
+          return;
         }
-        
-        navigate("/")
 
+        navigate("/");
       } else {
         setLoginFailed(res.message);
         // mau narik api, tapi ga ada message nya di api binar
@@ -65,12 +63,12 @@ const FormLogin = () => {
 
       <ButtonAuth type="submit">Sign In</ButtonAuth>
       {loginFailed && (
-        // <p className="text-danger text-center mt-3">
-        //   email atau password salah
-        // </p>
         <p className="text-danger text-center mt-3">
-          {loginFailed}
+          email atau password salah
         </p>
+        // <p className="text-danger text-center mt-3">
+        //   {loginFailed}
+        // </p>
       )}
     </form>
   );

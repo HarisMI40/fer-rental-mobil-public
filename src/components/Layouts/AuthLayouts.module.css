@@ -1,3 +1,9 @@
 .logintop {
   margin-top: 200px;
 }
+
+@media screen and (min-width: 992px) {
+  .img {
+    display: block;
+  }
+}
