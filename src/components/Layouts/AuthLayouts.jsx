@@ -1,4 +1,5 @@
 import style from "./AuthLayouts.module.css";
+import loginImage from "../../assets/login/login.jpg";
 
 const AuthLayout = (props) => {
   const { children, title } = props;
@@ -20,7 +21,7 @@ const AuthLayout = (props) => {
           </div>
         </div>
         <div className="col-6">
-          <img src="/src/assets/login/login.jpg" alt="" />
+          <img src={loginImage} alt="" />
         </div>
       </div>
     </div>
